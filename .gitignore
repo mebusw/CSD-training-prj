@@ -1,0 +1,11 @@
+target
+.idea
+*.class
+output.xml
+report.html
+log.html
+*.iml
+*.pyc
+.gradle/
+build/
+node_modules/

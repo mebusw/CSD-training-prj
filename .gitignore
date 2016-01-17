@@ -1,0 +1,4 @@
+UnitTest/bin/Debug/
+bin/
+*.obj
+.cache

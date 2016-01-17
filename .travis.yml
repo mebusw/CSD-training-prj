@@ -1,3 +1,7 @@
+language: csharp
+
+solution: CSDdotnet.sln
+
 branches:
   only:
     - java-base

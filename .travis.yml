@@ -1,13 +1,6 @@
 language: csharp
 
 solution: CSDdotnet.sln
-
-branches:
-  only:
-    - master
-    - java-base
-    - csharp-base
-
 before_install:
   - sudo apt-get install nunit-console
 before_script:

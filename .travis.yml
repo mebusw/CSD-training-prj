@@ -4,6 +4,7 @@ solution: CSDdotnet.sln
 
 branches:
   only:
+    - master
     - java-base
     - csharp-base
 

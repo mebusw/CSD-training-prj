@@ -1,4 +1,6 @@
-language: java
+language: python
+
+script: ls
 
 branches:
   only:

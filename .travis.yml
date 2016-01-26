@@ -9,5 +9,8 @@ branches:
     - java2
     - java3
     - java4
+    - java5
+    - java6
     - csharp1
     - csharp2
+    - csharp3

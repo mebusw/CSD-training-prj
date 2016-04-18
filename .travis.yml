@@ -4,11 +4,9 @@ script: ls
 
 
 branches:
-  only:
     - master
     - java-base
     - csharp-base
     - java9
-    - csharp1
     - csharp3
     

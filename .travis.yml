@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 language: python
 
 script: ls
+=======
+language: java
+jdk:
+  - oraclejdk8
+>>>>>>> origin/java-base
 
 branches:
   only:

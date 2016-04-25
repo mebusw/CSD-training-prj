@@ -7,6 +7,6 @@ branches:
     - master
     - java-base
     - csharp-base
-    - java9
-    - csharp3
+    - java1
+    - csharp1
     

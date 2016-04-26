@@ -1,0 +1,6 @@
+image: daocloud/ci-java:oraclejdk8 
+script:
+    - mvn test
+    - ls
+    - pwd
+

@@ -3,10 +3,11 @@ package example;
 import static org.junit.Assert.*;
 import org.junit.Test;
 
-public class OneTest {
+public class Customer_order_Test {
   @Test
   public void testFoo() throws Exception {
-    One one = new One();
+    Customer_order one = new Customer_order();
+
     assertEquals("foo", one.foo());
   }
 

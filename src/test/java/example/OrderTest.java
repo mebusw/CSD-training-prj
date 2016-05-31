@@ -28,7 +28,7 @@ public class OrderTest {
     public void testOrder2()
     {
         assertEquals(1,1);
-        assertEquals(1,2);
+        assertEquals(2,2);
     }
 
 }

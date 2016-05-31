@@ -31,7 +31,7 @@ public class Order {
         return menu[userOrder-1];
     }
 
-    public String setUserinfo(String user1, String s, String s1) {
+    public String markUserinfo(String user1, String s, String s1) {
         return "user1";
     }
 }

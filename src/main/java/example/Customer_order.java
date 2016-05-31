@@ -13,6 +13,7 @@ public class Customer_order {
         System.out.println(foo());
     }
 
+
     public static void main (String[] args)  throws IOException {
         if (args[0].equals("consume")) {
             BufferedReader in = null;

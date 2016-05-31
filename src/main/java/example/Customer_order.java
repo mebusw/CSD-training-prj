@@ -8,7 +8,7 @@ public class Customer_order {
     String message = "getMenuList";
 
     public String getMenuList() {
-//        List menulist=ne
+
 
         return message;
     }

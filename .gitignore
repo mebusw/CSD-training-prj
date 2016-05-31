@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+build/
+target/
+*.class
+=======
 target
 .idea
 *.class
@@ -9,3 +14,4 @@ log.html
 .gradle/
 build/
 node_modules/
+>>>>>>> origin/java-base

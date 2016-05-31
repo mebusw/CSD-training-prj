@@ -13,8 +13,8 @@ The code must be commmitted in before demo to Product Owner in the sprint review
 
 ## Copyright
 
-Created by [Jacky Shen](http://www.jackyshen.com) @ 2013-2015
+Created by [Jacky Shen](http://www.jackyshen.com/about-me) @ 2013-2016
 
-Jacky Shen is a [Certified Scrum Developer](www.uperform.cn) trainer registered in [Scrum Alliance](scrumalliance.org)
+Jacky Shen is a Certified Team Coach and registered [Certified Scrum Developer](http://www.uperform.cn) trainer of [Scrum Alliance](http://scrumalliance.org)
 
 

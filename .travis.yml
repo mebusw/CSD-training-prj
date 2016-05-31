@@ -2,9 +2,3 @@ language: java
 jdk:
   - oraclejdk8
 
-branches:
-  only:
-    - master
-    - java-base
-    - csharp-base
-

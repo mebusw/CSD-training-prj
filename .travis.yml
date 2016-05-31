@@ -1,14 +1,4 @@
-language: python
+language: java
+jdk:
+  - oraclejdk8
 
-script: ls
-
-
-branches:
-    - master
-    - java-base
-    - csharp-base
-    - java1
-    - java2
-    - java3
-    - csharp1
-    

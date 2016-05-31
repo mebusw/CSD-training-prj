@@ -1,16 +1,20 @@
 package example;
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Customer_order {
-    String message = "foo";
+    String message = "getMenuList";
 
-    public String foo() {
+    public String getMenuList() {
+//        List menulist=ne
+
         return message;
     }
 
     public void uncoveredMethod() {
-        System.out.println(foo());
+        System.out.println(getMenuList());
     }
 
 

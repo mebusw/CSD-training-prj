@@ -8,7 +8,7 @@ public class Customer_order_Test {
   public void testFoo() throws Exception {
     Customer_order customer_order = new Customer_order();
 
-    assertEquals("foo", customer_order.foo());
+    assertEquals("getMenuList", customer_order.getMenuList());
   }
 
   @Test

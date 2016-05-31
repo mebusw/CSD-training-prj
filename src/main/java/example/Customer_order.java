@@ -2,7 +2,7 @@ package example;
 
 import java.io.*;
 
-public class One {
+public class Customer_order {
     String message = "foo";
 
     public String foo() {

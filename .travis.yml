@@ -8,5 +8,7 @@ branches:
     - java-base
     - csharp-base
     - java1
+    - java2
+    - java3
     - csharp1
     

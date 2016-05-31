@@ -2,20 +2,38 @@ package example;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class Customer_order {
-    String message = "getMenuList";
+    private static ArrayList menuList;
+    //    String message = "getMenuList";
+//    private List menuList;
+    private int order_count;
+    //    private ArrayList menuList;
 
-    public String getMenuList() {
 
-
-        return message;
+    public void createOrder(int i){
+        order_count+=i;
     }
+
+
+
+    public static List getMenuList() {
+        menuList =new ArrayList();
+        menuList.add("宫爆鸡丁");
+        menuList.add("糖醋里脊");
+
+        return menuList;
+    }
+
+//    public static
 
     public void uncoveredMethod() {
         System.out.println(getMenuList());
     }
+
+
 
 
     public static void main (String[] args)  throws IOException {
@@ -42,5 +60,10 @@ public class Customer_order {
             }
         }
 
+    }
+
+    public static List initialMenuList(ArrayList menu) {
+        menuList=menu;
+        return menuList;
     }
 }

@@ -19,7 +19,7 @@ public class OrderTest {
     {
         Order ord = new Order();
         assertEquals(true,ord.select(1));
-        assertEquals("user1",ord.setUserinfo("user1","13360090101","深圳 科技园"));
+        assertEquals("user1",ord.markUserinfo("user1","13360090101","深圳 科技园"));
         assertEquals(1,ord.getUserOrder());
         assertEquals("food 1 21",ord.prtUserOrder());
 

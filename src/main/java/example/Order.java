@@ -1,8 +1,6 @@
 package example;
 
-/**
- * Created by titian on 2016/5/31.
- */
+
 public class Order {
     private int userOrder =0 ;
     private String[] menu = new String[]{"food 1 21","food 2 22","food 3 23"};;
@@ -10,7 +8,7 @@ public class Order {
     public static void main(String[] args)
     {
         Order ord = new Order();
-        System.out.print(ord.listMenu());
+        System.out.print(ord.listMenu().toString());
     }
     public String[] listMenu()
     {
@@ -32,6 +30,7 @@ public class Order {
     }
 
     public String markUserinfo(String user1, String s, String s1) {
+
         return "user1";
     }
 }

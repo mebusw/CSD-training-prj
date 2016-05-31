@@ -7,11 +7,11 @@ public class Order {
     public static void main(String[] args)
     {
         Order ord = new Order();
-        System.out.print(ord.list());
+        System.out.print(ord.listMenu());
     }
-    public String[] list()
+    public String[] listMenu()
     {
-        String [] menu= {"food 1 23"};
+        String [] menu= {"food 1 21","food 2 22","food 3 23"};
         return menu;
     }
 }

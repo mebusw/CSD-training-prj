@@ -11,7 +11,7 @@ public class OrderTest {
     @Test
     public void testList() throws Exception {
         Order ord = new Order();
-        assertEquals("food 1 23",ord.list() [0]);
+        assertEquals("food 1 21",ord.listMenu() [0]);
     }
 
 }

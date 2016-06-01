@@ -10,7 +10,10 @@ module.exports = function(config) {
       'src/**/*.js',
       'tst/**/*.js'
     ],
-    browsers: ['Chrome'],
+    browsers: [
+      //'Chrome',
+      'PhantomJS'
+    ],
     autoWatch: true,
     singleRun: true
   });

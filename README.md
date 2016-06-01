@@ -20,10 +20,13 @@ Jacky Shen is a [Certified Scrum Developer](www.uperform.cn) trainer registered 
 
 ## Node-JS specific
 
+
+    # Install Dependencies
     $ npm install    
     $ npm install -g karma-cli
     $ npm test
 
-<https://karma-runner.github.io/0.13/intro/installation.html>
+    # If it's unable to install phantomjs during `npm install`, then you download it manually at <http://phantomjs.org/>
 
+<https://karma-runner.github.io/0.13/intro/installation.html>
 <http://jasmine.github.io/2.4/introduction.html>

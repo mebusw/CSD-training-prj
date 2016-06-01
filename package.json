@@ -1,0 +1,28 @@
+{
+  "name": "csd",
+  "version": "1.0.0",
+  "description": "CSD training",
+  "main": "index.js",
+  "scripts": {
+    "test": "karma start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mebusw/CSD-training-prj.git"
+  },
+  "keywords": [
+    "csd"
+  ],
+  "author": "Jacky Shen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mebusw/CSD-training-prj/issues"
+  },
+  "homepage": "https://github.com/mebusw/CSD-training-prj#readme",
+  "devDependencies": {
+    "jasmine-core": "^2.4.1",
+    "karma": "^0.13.22",
+    "karma-chrome-launcher": "^1.0.1",
+    "karma-jasmine": "^0.1.6"
+  }
+}

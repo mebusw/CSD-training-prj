@@ -9,3 +9,6 @@ log.html
 .gradle/
 build/
 node_modules/
+.settings/
+.project
+.classpath

@@ -1,4 +1,11 @@
-UnitTest/bin/Debug/
+Debug/
 bin/
+obj/
 *.obj
+packages/
+
 .cache
+node_modules/
+.project
+
+

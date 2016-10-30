@@ -3,6 +3,7 @@ bin/
 obj/
 *.obj
 packages/
+*.suo
 
 .cache
 node_modules/

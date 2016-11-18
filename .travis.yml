@@ -1,4 +1,7 @@
-branches:
-  except:
-    - master
+language: cpp
+
+compiler: gcc
+
+before_install:
+  - sudo apt-get install -y g++ cpputest automake autoconf libtool
 

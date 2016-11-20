@@ -28,10 +28,11 @@ void removeFromQueue(int howMany)
 TEST(CircularBuffer, EmptyAfterCreation)
 {
     CHECK(buffer->IsEmpty());
-    
+
     LONGS_EQUAL(42, 42);
     CHECK(1);
     CHECK_TRUE(1);
     CHECK_FALSE(0);
     STRCMP_EQUAL("hey", "hey");
-    //FAIL("Start here");}
+    //FAIL("Start here");
+}

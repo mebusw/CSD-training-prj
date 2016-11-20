@@ -2,8 +2,12 @@ language: cpp
 
 compiler: gcc
 
-before_install:
-  - sudo apt-get update
-  - sudo apt-get install -y g++ cpputest
-  - echo $CPPUTEST_HOME
+# before_install:
+#   - git clone git://github.com/cpputest/cpputest.git
+#   - cd cpputest
+#   - ./configure
+#   - make
+#   - sudo make install
+#   - sudo apt-get install -y g++ cpputest
+#   - echo $CPPUTEST_HOME
 

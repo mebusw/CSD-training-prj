@@ -11,6 +11,10 @@ before_install:
   - ./configure
   - make
   - sudo make install
+  - export CPPUTEST_HOME=`pwd`
   - echo $CPPUTEST_HOME
   - cd examples
+
+script:
+  - make all test
 

@@ -13,6 +13,6 @@ before_install:
 #   - ./configure
 #   - make
 #   - sudo make install
-  - sudo apt-get install -y cpputest
+  - apt-get install -y cpputest
   - echo $CPPUTEST_HOME
 

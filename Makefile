@@ -5,7 +5,7 @@ endif
 
 #--- Inputs ----#
 COMPONENT_NAME = CSD
-CPPUTEST_HOME = /usr/local/Cellar/cpputest/3.8/
+# CPPUTEST_HOME = /usr/local/Cellar/cpputest/3.8/
 
 CPPUTEST_USE_EXTENSIONS = Y
 CPP_PLATFORM = Gcc
@@ -26,11 +26,8 @@ INCLUDE_DIRS =\
   $(CPPUTEST_HOME)/include\
 
 
-
 CPPUTEST_WARNINGFLAGS = -Wall -Wswitch-default
 
-CPPUTEST_LIB_LINK_DIR = ./lib
-# CPPUTEST_LIB_DIR = .
 include ./build/MakefileWorker.mk
 
 

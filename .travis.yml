@@ -6,6 +6,9 @@ before_install:
   - sudo apt-get install automake autoconf libtool
   - wget https://github.com/cpputest/cpputest/archive/master.zip
   - unzip master.zip
+
+before_script:
+  - pwd
   - cd cpputest-master
   - ./autogen.sh
   - ./configure
@@ -14,11 +17,13 @@ before_install:
   - export CPPUTEST_HOME=`pwd`
   - echo $CPPUTEST_HOME
   - cd examples
-
-script:
   - echo "=====CPPUTEST_LIB========="
   - make all
+
+script:
+  - pwd
   - echo "=====WORKING_CODE========="
+  - cd ..
   - cd ..
   - make all
 

@@ -16,5 +16,11 @@ before_install:
   - cd examples
 
 script:
-  - make all test
+  - echo "=====CPPUTEST_LIB========="
+  - make all
+  - echo "=====WORKING_CODE========="
+  - cd ..
+  - make all
+
+
 

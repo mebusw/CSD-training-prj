@@ -1,18 +1,14 @@
 language: cpp
 
-## Routing jobs to container-based Ubuntu 14.04 “Trusty” 
-dist: trusty
-sudo: required
-group: beta
-
 compiler: gcc
 
 before_install:
-#   - git clone git://github.com/cpputest/cpputest.git
-#   - cd cpputest
-#   - ./configure
-#   - make
-#   - sudo make install
-  - apt-get install -y cpputest
+  - sudo apt-get install automake autoconf libtool
+  - wget https://github.com/cpputest/cpputest/archive/master.zip
+  - unzip master.zip
+  - cd cpputest-master
+  - ./configure
+  - make
+  - sudo make install
   - echo $CPPUTEST_HOME
 

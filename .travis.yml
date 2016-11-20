@@ -25,6 +25,7 @@ before_script:
 script:
   - echo "=====WORKING_CODE========="
   - pwd
+  - ls -al
   - make all
 
 

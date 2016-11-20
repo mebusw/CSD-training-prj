@@ -2,7 +2,7 @@ language: cpp
 
 ## Routing jobs to container-based Ubuntu 14.04 “Trusty” 
 dist: trusty
-sudo: false
+sudo: required
 group: beta
 
 compiler: gcc

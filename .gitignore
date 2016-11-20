@@ -7,7 +7,6 @@ log.html
 *.iml
 *.pyc
 .gradle/
-build/
 node_modules/
 .settings/
 .project

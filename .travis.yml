@@ -7,8 +7,10 @@ before_install:
   - wget https://github.com/cpputest/cpputest/archive/master.zip
   - unzip master.zip
   - cd cpputest-master
+  - ./autogen.sh
   - ./configure
   - make
   - sudo make install
   - echo $CPPUTEST_HOME
+  - cd examples
 

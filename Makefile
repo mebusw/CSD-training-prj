@@ -1,11 +1,11 @@
 #Set this to @ to keep the makefile quiet
 ifndef SILENCE
-        SILENCE = @
+        # SILENCE = @
 endif
 
 #--- Inputs ----#
 COMPONENT_NAME = CSD
-CPPUTEST_HOME = ..
+CPPUTEST_HOME = /usr/local/Cellar/cpputest/3.8/
 
 CPPUTEST_USE_EXTENSIONS = Y
 CPP_PLATFORM = Gcc
@@ -15,22 +15,21 @@ CPP_PLATFORM = Gcc
 # so that memory leak detection does not conflict with stl.
 # CPPUTEST_MEMLEAK_DETECTOR_NEW_MACRO_FILE = -include ApplicationLib/ExamplesNewOverrides.h
 SRC_DIRS = \
-        ApplicationLib
+        src
 
 TEST_SRC_DIRS = \
-        AllTests
+        tst
 
 INCLUDE_DIRS =\
   .\
-  ApplicationLib\
+  src\
   $(CPPUTEST_HOME)/include\
 
-CPPUTEST_HOME = /usr/local/Cellar/cpputest/3.8/
 
 
 CPPUTEST_WARNINGFLAGS = -Wall -Wswitch-default
 
-# CPPUTEST_LIB_LINK_DIR = ./lib
+CPPUTEST_LIB_LINK_DIR = ./lib
 # CPPUTEST_LIB_DIR = .
 include ./build/MakefileWorker.mk
 

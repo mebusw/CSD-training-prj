@@ -13,3 +13,5 @@ node_modules/
 .project
 .classpath
 objs/
+CSD_tests*
+*.a

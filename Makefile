@@ -28,6 +28,6 @@ INCLUDE_DIRS =\
 
 CPPUTEST_WARNINGFLAGS = -Wall -Wswitch-default
 
-include ./build/MakefileWorker.mk
+include $(CPPUTEST_HOME)/build/MakefileWorker.mk
 
 

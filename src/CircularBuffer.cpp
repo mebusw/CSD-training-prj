@@ -1,4 +1,5 @@
 #include "CircularBuffer.h"
+#include "Printer.h"
 
 CircularBuffer::CircularBuffer(int _capacity) :
     index(0), outdex(0), capacity(_capacity), empty(true), full(false)
@@ -9,6 +10,16 @@ CircularBuffer::CircularBuffer(int _capacity) :
 CircularBuffer::~CircularBuffer()
 {
     delete[] buffer;
+}
+
+bool CircularBuffer::IsEmpty()
+{
+    return empty;
+}
+
+bool CircularBuffer::IsFull()
+{
+    return full;
 }
 
 void CircularBuffer::Put(int i)
@@ -44,7 +55,19 @@ int CircularBuffer::Next(int i)
     return i;
 }
 
-bool CircularBuffer::IsEmpty()
+void CircularBuffer::Print(Printer* p)
 {
-	return true;
+    p->Print("Circular buffer content:\n<");
+
+    int printIndex = outdex;
+    int count = index - outdex;
+
+    if (!empty && (index <= outdex)) count = capacity - (outdex - index);
+
+    for (int i = 0; i < count; i++) {
+        p->Print(buffer[printIndex]);
+        printIndex = Next(printIndex);
+        if (i + 1 != count) p->Print(", ");
+    }
+    p->Print(">\n");
 }

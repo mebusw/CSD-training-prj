@@ -17,4 +17,9 @@ Created by [Jacky Shen](http://www.jackyshen.com) @ 2013-2015
 
 Jacky Shen is a [Certified Scrum Developer](www.uperform.cn) trainer registered in [Scrum Alliance](scrumalliance.org)
 
+### For C++
+
+    apt-get install g++ cpputest
+    make all test
+
 

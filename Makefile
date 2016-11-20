@@ -1,11 +1,11 @@
 #Set this to @ to keep the makefile quiet
 ifndef SILENCE
-        # SILENCE = @
+        SILENCE = @
 endif
 
 #--- Inputs ----#
 COMPONENT_NAME = CSD
-CPPUTEST_HOME = /usr/local/Cellar/cpputest/3.8/
+# CPPUTEST_HOME = /usr/local/Cellar/cpputest/3.8/
 
 CPPUTEST_USE_EXTENSIONS = Y
 CPP_PLATFORM = Gcc

@@ -8,6 +8,7 @@ before_install:
   - unzip master.zip
 
 before_script:
+  - echo "=====CPPUTEST_LIB========="
   - pwd
   - cd cpputest-master
   - ./autogen.sh
@@ -17,14 +18,13 @@ before_script:
   - export CPPUTEST_HOME=`pwd`
   - echo $CPPUTEST_HOME
   - cd examples
-  - echo "=====CPPUTEST_LIB========="
   - make all
+  - cd ..
+  - cd ..
 
 script:
-  - pwd
   - echo "=====WORKING_CODE========="
-  - cd ..
-  - cd ..
+  - pwd
   - make all
 
 

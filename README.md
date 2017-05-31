@@ -15,7 +15,7 @@ The code must be commmitted in before demo to Product Owner in the sprint review
 
 Created by [Jacky Shen](http://www.jackyshen.com) @ 2013-2017
 
-Jacky Shen is a [Certified Scrum Developer](www.uperform.cn) trainer registered in [Scrum Alliance](scrumalliance.org)
+Jacky Shen is a [Certified Scrum Developer](http://www.uperform.cn) trainer registered in [Scrum Alliance](https://www.scrumalliance.org)
 
 
 ## For Node-JavaScript

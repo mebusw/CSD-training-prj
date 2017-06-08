@@ -8,10 +8,21 @@ import static org.junit.Assert.*;
  * Created by CHEUNBE2 on 6/7/2017.
  */
 public class TennisTest {
-//    @Test
-//    public void reserveTest(){
-//        assertEquals("Success", Tennis.reserve());
-//    }
+    private Booking booking;
+
+    @Test
+    public void reserveSuccessTest(){
+        Slot reserveSlot = new Slot("1", "HKHKG", "201706071000");
+
+        assertEquals("Success", Tennis.reserve(reserveSlot));
+    }
+
+    @Test
+    public void reserveFailTest(){
+        Slot reserveSlot = new Slot("1", "HKHKG", "201706071000");
+        reserveSlot.setAvailablity(false);
+        assertEquals("Fail", Tennis.reserve(reserveSlot));
+    }
 //
 //    @Test
 //    public void paymentTest(){
@@ -28,5 +39,7 @@ public class TennisTest {
         Slot testSlot = new Slot("1", "HKHKG", "201706071000");
         assertEquals("Success", Tennis.publish(testSlot));
     }
+
+
 
 }

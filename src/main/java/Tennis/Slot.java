@@ -10,6 +10,7 @@ public class Slot {
     private boolean isAvailable;
 
     public Slot(String fee, String location, String time){
+        //Each Slot has 1 hour
         this.fee = fee;
         this.location= location;
         this.time= time;

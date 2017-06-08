@@ -8,9 +8,17 @@ public class Tennis {
         return ("Success");
     }
 
-    public static String reserve(Slot reserveSlot) {
-        if(reserveSlot.getAvailablity())
-            return "Success";
+    public static String reserve(Account acc, Slot reserveSlot) {
+
+        if(reserveSlot.getAvailablity()){
+            reserveSlot.setAvailablity(false);
+            Booking confirmed_booking = new Booking();
+            confirmed_booking.setStatus("Success");
+            confirmed_booking.setSlot(reserveSlot);
+            acc.booking.add(confirmed_booking);
+            return confirmed_booking.getStatus();
+        }
+
         else
             return "Fail";
     }

@@ -2,6 +2,8 @@ package Tennis;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.Assert.*;
 
 /**
@@ -14,14 +16,25 @@ public class TennisTest {
     public void reserveSuccessTest(){
         Slot reserveSlot = new Slot("1", "HKHKG", "201706071000");
 
-        assertEquals("Success", Tennis.reserve(reserveSlot));
+        Account account=new Account("user","password");
+        assertEquals("Success", Tennis.reserve(account,reserveSlot));
     }
 
     @Test
     public void reserveFailTest(){
         Slot reserveSlot = new Slot("1", "HKHKG", "201706071000");
+        Account account=new Account("user","password");
         reserveSlot.setAvailablity(false);
-        assertEquals("Fail", Tennis.reserve(reserveSlot));
+        assertEquals("Fail", Tennis.reserve(account,reserveSlot));
+    }
+
+    @Test
+    public void CheckBookingInAcc(){
+        Account account=new Account("user","password");
+        Slot reserveSlot = new Slot("1", "HKHKG", "201706071000");
+        Tennis.reserve(account,reserveSlot);
+        ArrayList<Booking> arr_booking= account.getReservedBooking(account);
+        assertEquals(1,arr_booking.size());
     }
 //
 //    @Test

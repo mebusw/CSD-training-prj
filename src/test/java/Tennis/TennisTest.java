@@ -48,6 +48,14 @@ public class TennisTest {
         assertEquals(1,arr_booking.size());
     }
 
+    @Test
+    public void playerAccountTest(){
+        Tennis tennis = new Tennis();
+        Account account=new Account("Emma","emma");
+        tennis.addAccount(account);
+        account = tennis.login("Emma", "emma");
+        assertEquals("member", account.getRole());
+    }
 
 //
 //    @Test

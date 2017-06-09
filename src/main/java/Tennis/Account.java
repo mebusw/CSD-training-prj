@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Account {
     String username;
     String userpassword;
+//    String userrole;
     ArrayList<Booking> booking;
      protected Account(String username,String password){
          this.userpassword=password;
@@ -15,4 +16,5 @@ public class Account {
     public ArrayList<Booking> getReservedBooking(Account account) {
          return this.booking;
     }
+
 }

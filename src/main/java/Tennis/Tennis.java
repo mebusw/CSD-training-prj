@@ -20,6 +20,12 @@ public class Tennis {
         }
 
         else
-            return "Fail";
+        {
+            Booking confirmed_booking = new Booking();
+            confirmed_booking.setStatus("Fail");
+            confirmed_booking.setSlot(reserveSlot);
+            acc.booking.add(confirmed_booking);
+            return confirmed_booking.getStatus();
+        }
     }
 }

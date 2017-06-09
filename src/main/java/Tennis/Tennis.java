@@ -10,6 +10,7 @@ public class Tennis {
     private Slot[] slots;
     private Booking[] bookings;
 
+
     public static String publish(Slot testSlot) {
         return ("Success");
     }
@@ -37,7 +38,7 @@ public class Tennis {
                 return accounts.get(i);
             }
         }
-        return new Account("", "");
+        return null;
     }
 
     public void addAccount(Account account) {

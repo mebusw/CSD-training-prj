@@ -26,6 +26,9 @@ public class Account {
     }
 
     public boolean auth(String username, String password) {
-        if (this.username == username && this.userpassword == password) return true; else return false;
+        if (this.username == username && this.userpassword == password)
+            return true;
+        else
+            return false;
      }
 }

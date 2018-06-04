@@ -7,7 +7,7 @@ class Room {
 
     Object ordered;
 
-    int getSaledPrice() {return price*rate;}
+    int getSalePrice() {return price*rate;}
 
     def setPrice(int price){this.price = price}
 

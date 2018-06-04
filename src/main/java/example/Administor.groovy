@@ -5,7 +5,7 @@ class Administor {
         room.setPrice(price)
     }
 
-    def setCoupon(Room room, float rate) {
+    def setCouponWithRate(Room room, float rate) {
         room.setCouponRate(rate);
     }
 

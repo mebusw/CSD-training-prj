@@ -10,6 +10,8 @@ import java.util.List;
 public class Meeting {
 
     private static List<Room> rooms = new ArrayList<>();
+    private static List<Appointment> appointments = new ArrayList<>();
+
 
     public List<Room> search(RoomSearchEntity entity) {
         List<Room> rooms = new ArrayList<>();
@@ -31,6 +33,11 @@ public class Meeting {
         appointment.setUser(user);
         appointment.setCreateDate("2018-06-04");
         appointment.setRoom(room);
+        appointments.add(appointment);
         return  appointment;
+    }
+
+    public List<Appointment> getAllAppointments(User user) {
+        return appointments;
     }
 }

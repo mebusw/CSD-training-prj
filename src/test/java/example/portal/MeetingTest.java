@@ -12,10 +12,14 @@ import static org.junit.Assert.*;
 public class MeetingTest {
 
     private Meeting meeting;
+    private User adminUser;
+    private User user;
 
     @Before
     public void setup() {
         this.meeting = new Meeting();
+        this.user = new User();
+        this.adminUser = new User();
     }
 
     @Test
@@ -53,21 +57,27 @@ public class MeetingTest {
     @Test
     public void testBooking() {
         Room room = new Room();
-        User user = new User();
         Appointment appointment = meeting.doBooking(user,room);
         assertEquals(Room.BOOKING_STATUS_BOOKED,room.getBookingStatus());
     }
 
     @Test
     public void testAddRoom() {
-        User user = new User();
         Room room = new Room();
         room.setStartDate("2018-06-10");
         room.setSize(12);
         room.setDuration(5);
         room.setMaxPrice(1000);
-        meeting.addRoom(user,room);
+        meeting.addRoom(adminUser,room);
         List<Room> rooms = meeting.getAllRooms();
         assertEquals(1, rooms.size());
+    }
+
+    @Test
+    public void testGetAllAppointments() {
+        Room room = new Room();
+        Appointment appointment = meeting.doBooking(user,room);
+        List<Appointment> appointments = meeting.getAllAppointments(user);
+        assertEquals(1, appointments.size());
     }
 }

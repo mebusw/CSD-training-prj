@@ -4,11 +4,17 @@ import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import java.io.*;
 
 public class OneTest {
+
+  @Before
+  public void setup(){
+    One.meetingRoomManager.initialize();
+  }
 
   @Test
   public void testMainWithNullArgs() throws IOException {
@@ -119,5 +125,4 @@ public class OneTest {
     // recover System
     System.setOut(original);
   }
-
 }

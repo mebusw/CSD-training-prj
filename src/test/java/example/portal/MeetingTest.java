@@ -50,4 +50,22 @@ public class MeetingTest {
         assertEquals(1, rooms.size());
     }
 
+    /*@Test
+    public void testBooking() {
+        Room room = new Room();
+        meeting.doBooking(room);
+        assertEquals(Room.BookingStatusSuccess,room.getBookingStatus());
+    }*/
+    @Test
+    public void testAddRoom() {
+        User user = new User();
+        Room room = new Room();
+        room.setStartDate("2018-06-10");
+        room.setSize(12);
+        room.setDuration(5);
+        room.setMaxPrice(1000);
+        meeting.addRoom(user,room);
+        List<Room> rooms = meeting.getAllRooms();
+        assertEquals(1, rooms.size());
+    }
 }

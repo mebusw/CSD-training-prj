@@ -41,7 +41,7 @@ public class CoacherTest {
 
 
     @Test
-    public void test_search_price_0_1000() throws Exception {
+    public void test_search_price_max_1000() throws Exception {
 
         RoomCondition roomCondition = new RoomCondition(0,1000,0,100);
 
@@ -53,6 +53,15 @@ public class CoacherTest {
     public void test_search_price_min_1000() throws Exception {
 
         RoomCondition roomCondition = new RoomCondition(1000,0,0,0);
+
+        assertEquals(2, userService.getMeetingRooms(roomCondition).size());
+    }
+
+
+    @Test
+    public void test_search_price_between_800_1000() throws Exception {
+
+        RoomCondition roomCondition = new RoomCondition(800,1000,0,0);
 
         assertEquals(2, userService.getMeetingRooms(roomCondition).size());
     }

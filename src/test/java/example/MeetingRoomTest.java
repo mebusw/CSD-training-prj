@@ -27,12 +27,18 @@ public class MeetingRoomTest {
     }
 
     @Test
-    public void test_add_room_Props(){
+    public void test_add_room_props(){
         HotelManager hotelManger = new HotelManager();
-        MeetingRoom meetingRoom = new MeetingRoom("CityHotel","shanghai","50","800",false,"Anything");
-        hotelManger.addMeetingRoom(meetingRoom);
-        Assert.assertEquals(1,hotelManger.getMeetingRooms().size());
-        Assert.assertEquals("CityHotel",hotelManger.getMeetingRooms().get(0).getName());
+        MeetingRoom addRoom = new MeetingRoom("CityHotel","shanghai","50","800",false,"Anything");
+        hotelManger.addMeetingRoom(addRoom);
 
+        Assert.assertEquals(1,hotelManger.getMeetingRooms().size());
+        MeetingRoom meetingRoom = hotelManger.getMeetingRooms().get(0);
+
+        Assert.assertEquals("CityHotel", meetingRoom.getName());
+        Assert.assertEquals("shanghai", meetingRoom.getLocation());
+        Assert.assertEquals("50", meetingRoom.getNumberOfPeopleRongliang());
+        Assert.assertEquals("800", meetingRoom.getPrice());
+        Assert.assertEquals("", meetingRoom.getDescription());
     }
 }

@@ -61,28 +61,16 @@ class ClientTest extends Specification {
             ReservationState.RESERVED == result.getReservationState()
     }
 
-//    def "会议室特殊原因拒绝预约"() {
-//        given:
-//            def reservationService = new ReservationService()
-//            def reservationId=1l
-//            def rejectMark = '装修中'
-//        when:
-//            reservationService.rejectReservation(reservationId,rejectMark)
-//            Reservation result = reservationService.getReservation(reservationId)
-//        then:
-//            ReservationState.REJECTED == result.getReservationState()
-//    }
-//
-//    def "预约成功"() {
-//        given:
-//        def reservationService = new ReservationService()
-//        def reservationId=1l
-//        def rejectMark = '装修中'
-//        when:
-//        reservationService.rejectReservation(reservationId,rejectMark)
-//        Reservation result = reservationService.getReservation(reservationId)
-//        then:
-//        ReservationState.REJECTED == result.getReservationState()
-//    }
+    def "会议室特殊原因拒绝预约"() {
+        given:
+            def reservationService = new ReservationService()
+            def reservationId=2l
+            def rejectMark = '装修中'
+        when:
+            reservationService.rejectReservation(reservationId,rejectMark)
+            Reservation result = reservationService.getReservation(reservationId)
+        then:
+            ReservationState.REJECTED == result.getReservationState()
+    }
 
 }

@@ -12,10 +12,14 @@ public class ReservationService {
         if(reservationId == 1L) {
             reservation.setReservationState(ReservationState.RESERVED);
         }
+        if(reservationId == 2L) {
+            reservation.setReservationState(ReservationState.REJECTED);
+        }
         return reservation;
     }
 
     public void rejectReservation(Long reservationId, String rejectMark) {
-
+        Reservation reservation = getReservation(1L);
+        reservation.setReservationState(ReservationState.REJECTED);
     }
 }

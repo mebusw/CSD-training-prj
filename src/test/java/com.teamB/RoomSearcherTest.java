@@ -3,8 +3,10 @@ package com.teamB;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertTrue;
 
 public class RoomSearcherTest {
@@ -53,12 +55,22 @@ public class RoomSearcherTest {
     }
 
     @Test
-    public void testBookNotification() {
-//
-//        RoomManager rm = new RoomManager();
-//        rm.sendNotifications(List<Attendee>);
-//
-//        rm.sent
+    public void testManagerSearchService() {
+
+        RoomManager rm = new RoomManager();
+        List<Room> rooms = new ArrayList<Room>();
+        Room room = new Room();
+        room.setPrice(200);
+        room.setHotelName("CityHotel");
+        room.setName("vip6");
+        rooms.add(room);
+        rm.setRooms(rooms);
+
+        Room foundRoom = rm.search("vip6");
+
+        assertEquals("CityHotel", foundRoom.getHotelName());
+        assertEquals("vip6", foundRoom.getName());
+        assertEquals(200, foundRoom.getPrice());
     }
 
 

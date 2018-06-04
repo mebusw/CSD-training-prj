@@ -75,4 +75,27 @@ public class OneTest {
     // recover System
     System.setOut(original);
   }
+
+
+  @Test
+  public void testMainWithArgs_Vendor_With_AddRoom() throws IOException {
+    // change System for test
+    final PrintStream original = System.out;
+    final PrintStream mockPrintStream = mock(PrintStream.class);
+    System.setOut(mockPrintStream);
+
+    // arrange
+    String[] args = {"vendor", "vendor1", "add", "room1"};
+    String expectedOut = "vendor1 add room1";
+
+    // act
+    One.main(args);
+
+    // assert
+    verify(mockPrintStream).println(expectedOut);
+
+    // recover System
+    System.setOut(original);
+  }
+
 }

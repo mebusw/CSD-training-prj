@@ -22,6 +22,9 @@ public class Main {
 
         //RoomSearcher searcher = new RoomSearcher()
 
+        RoomManager rm = new RoomManager();
+
+
 
         System.out.println("----------mian-------------");
     }

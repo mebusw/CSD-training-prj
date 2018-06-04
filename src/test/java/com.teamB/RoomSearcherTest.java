@@ -13,16 +13,16 @@ public class RoomSearcherTest {
     @Test
     public void testSearch() throws Exception {
         RoomSearcher searcher = new RoomSearcher();
-        List<Room> rooms = searcher.search("meeting", 20);
+        List<Room> rooms = searcher.search("vip6", 20);
 
-        assertTrue(rooms.size() > 0);
+        assertTrue(rooms.size() == 1);
     }
 
     @Test
     public void testBooking() throws Exception {
         RoomSearcher searcher = new RoomSearcher();
-        List<Room> rooms = searcher.search("meeting", 20);
-        assertTrue(rooms.size() > 0);
+        List<Room> rooms = searcher.search("vip6", 20);
+        assertTrue(rooms.size() == 1);
         Room room = rooms.get(0);
 
         Booker booker = new Booker();
@@ -58,19 +58,8 @@ public class RoomSearcherTest {
     public void testManagerSearchService() {
 
         RoomManager rm = new RoomManager();
-        List<Room> rooms = new ArrayList<Room>();
-        Room room = new Room();
-        room.setPrice(200);
-        room.setHotelName("CityHotel");
-        room.setName("vip6");
-        rooms.add(room);
-        rm.setRooms(rooms);
-
-        Room foundRoom = rm.search("vip6");
-
-        assertEquals("CityHotel", foundRoom.getHotelName());
-        assertEquals("vip6", foundRoom.getName());
-        assertEquals(200, foundRoom.getPrice());
+        List<Room> foundRoom = rm.search("vip6");
+        assertTrue(1 == foundRoom.size());
     }
 
 

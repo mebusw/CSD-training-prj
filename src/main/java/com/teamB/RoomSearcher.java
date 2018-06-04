@@ -7,13 +7,9 @@ public class RoomSearcher {
 
 
     public List<Room> search(String meeting, int i) {
-        List<Room> rooms = new ArrayList<Room>();
 
-        Room room = new Room();
-        room.setCapiblity(10);
-        room.setHotelName("CityHotel");
-        room.setName("vip6");
-        rooms.add(room);
+        RoomManager rm = new RoomManager();
+        List<Room> rooms = rm.search(meeting);
 
         return rooms;
     }

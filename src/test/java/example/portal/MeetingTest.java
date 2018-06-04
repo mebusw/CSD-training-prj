@@ -94,12 +94,16 @@ public class MeetingTest {
 
     @Test
     public void testBooking() {
-        Room room = new Room();
+        RoomSearchEntity entity = new RoomSearchEntity();
+        String date = "2018-06-10";
+        entity.setStartDate(date);
+        Room room = meeting.search(entity).get(0);
 
-        Appointment appointment = meeting.doBooking(user,room);
+        Appointment appointment = meeting.doBooking(user, room);
 
         assertEquals(Room.BOOKING_STATUS_BOOKED,room.getBookingStatus());
-        assertTrue(appointment != null);
+        assertEquals("2018-06-04", appointment.getCreateDate());
+        assertEquals(date, appointment.getRoom().getStartDate());
     }
 
     @Test

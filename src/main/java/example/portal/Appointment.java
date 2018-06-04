@@ -16,7 +16,15 @@ public class Appointment {
         this.createDate = createDate;
     }
 
+    public String getCreateDate() {
+        return createDate;
+    }
+
     public void setRoom(Room room) {
         this.room = room;
+    }
+
+    public Room getRoom() {
+        return room;
     }
 }

@@ -21,8 +21,14 @@ public class One {
                 System.out.println("user need other args: search or reserve.");
                 return;
             }
-
-            searchAvailableMeetingRooms();
+            switch (args[1]) {
+                case "search":
+                    searchAvailableMeetingRooms();
+                    break;
+                case "reserve":
+                    reserveAvailableMeetingRoom(args[2], args[3]);
+                    break;
+            }
             return;
         }
         if (args[0].equals(vendor)) {
@@ -38,11 +44,19 @@ public class One {
 
     private static void searchAvailableMeetingRooms() {
         if (meetingRoomManager.searchAvailable().isEmpty()) {
-            System.out.println( "Currently, there is not available meeting rooms.");
+            System.out.println("Currently, there is not available meeting rooms.");
         }
 
         for (MeetingRoom availableRoom : meetingRoomManager.searchAvailable()) {
             System.out.println(availableRoom.meetingRoomName + " from " + availableRoom.vendorName);
         }
+    }
+
+    private static void reserveAvailableMeetingRoom(String meetingRoomName, String vendorName) {
+        boolean isSuccessful = meetingRoomManager.reserveMeetingRoom(meetingRoomName, vendorName);
+        if (isSuccessful) {
+            System.out.println("Reserve " + meetingRoomName + " from " + vendorName + " successful.");
+        }
+
     }
 }

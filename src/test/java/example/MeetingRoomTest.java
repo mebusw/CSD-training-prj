@@ -55,4 +55,53 @@ public class MeetingRoomTest {
         // assert
         Assert.assertArrayEquals(expected.toArray(), actual.toArray());
     }
+
+    @Test
+    public void test_Reserve_a_Available_MeetingRooms(){
+        // arrange
+        MeetingRoomManager sut = new MeetingRoomManager();
+        MeetingRoom room = new MeetingRoom(meetingRoomName, vendorName);
+        sut.addRoom(room);
+
+        // act
+        boolean actual = sut.reserveMeetingRoom(meetingRoomName, vendorName);
+
+        // assert
+        Assert.assertEquals(true, actual);
+        Assert.assertEquals(false, room.isAvailable);
+    }
+
+    @Test
+    public void test_Reserve_a_Unavailable_MeetingRooms(){
+        // arrange
+        MeetingRoomManager sut = new MeetingRoomManager();
+        MeetingRoom room = new MeetingRoom(meetingRoomName, vendorName);
+        room.isAvailable = false;
+        sut.addRoom(room);
+
+        // act
+        boolean actual = sut.reserveMeetingRoom(meetingRoomName, vendorName);
+
+        // assert
+        Assert.assertEquals(false, actual);
+        Assert.assertEquals(false, room.isAvailable);
+    }
+
+    @Test
+    public void test_Reserve_a_Available_MeetingRooms_When_There_Are_Two_Vendor_With_Same_MeetingRoomName(){
+        // arrange
+        MeetingRoomManager sut = new MeetingRoomManager();
+        MeetingRoom room = new MeetingRoom(meetingRoomName, vendorName);
+        MeetingRoom room2 = new MeetingRoom(meetingRoomName, "OtherVendorName");
+        sut.addRoom(room2);
+        sut.addRoom(room);
+
+        // act
+        boolean actual = sut.reserveMeetingRoom(meetingRoomName, vendorName);
+
+        // assert
+        Assert.assertEquals(true, actual);
+        Assert.assertEquals(false, room.isAvailable);
+        Assert.assertEquals(true, room2.isAvailable);
+    }
 }

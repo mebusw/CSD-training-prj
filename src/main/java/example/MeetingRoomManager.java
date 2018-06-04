@@ -24,4 +24,16 @@ public class MeetingRoomManager {
     public void initialize() {
         rooms.clear();
     }
+
+    public boolean reserveMeetingRoom(String meetingRoomName, String vendorName) {
+        for (MeetingRoom room : rooms) {
+            if (room.meetingRoomName == meetingRoomName
+                    && room.vendorName == vendorName
+                    && room.isAvailable) {
+                room.isAvailable = false;
+                return true;
+            }
+        }
+        return false;
+    }
 }

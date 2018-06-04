@@ -1,6 +1,6 @@
 package example;
 
-public class HotelMangerTest {
+public class HotelManagerTest {
 //
 //    @Test
 //    public void test_add_one_user() throws Exception {

@@ -15,6 +15,7 @@ public class HotelService {
         Hotel hotel = new Hotel();
         hotels.add(hotel);
         Room room = new Room();
+        room.setId(1);
         room.setHasWifi(true);
         room.setOutletNumber(15);
         room.setSeatsNumer(20);

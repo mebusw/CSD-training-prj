@@ -5,7 +5,7 @@ import com.taylor.reservation.domain.Reservation;
 public class CustomerService {
 
     public Long reserve(Reservation reservation) {
-        return 1l;
+        return 12345l;
     }
 
 }

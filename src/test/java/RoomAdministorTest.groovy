@@ -22,7 +22,6 @@ class RoomAdministorTest extends spock.lang.Specification{
 
     def "发售优惠券"(){
         given:"有个会议室管理员和一个会议室"
-          administor = new Administor();
 
         when:"管理员给room设定一个指定折扣的优惠券"
         administor.assign(room,300)
@@ -30,5 +29,6 @@ class RoomAdministorTest extends spock.lang.Specification{
         then:"会议室价格变为此折扣价"
         room.getSaledPrice() == 90;
     }
+
 
 }

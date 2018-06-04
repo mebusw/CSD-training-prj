@@ -8,4 +8,8 @@ class Administor {
     def setCoupon(Room room, float rate) {
         room.setCouponRate(rate);
     }
+
+    def giveGoldCardTp(Coach coach) {
+        coach.isGolden=true;
+    }
 }

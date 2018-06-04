@@ -1,7 +1,7 @@
 package example
 
 class Room {
-    int price
+    int price=300;
 
     def rate=1f;
 

@@ -50,12 +50,14 @@ public class MeetingTest {
         assertEquals(1, rooms.size());
     }
 
-    /*@Test
+    @Test
     public void testBooking() {
         Room room = new Room();
-        meeting.doBooking(room);
-        assertEquals(Room.BookingStatusSuccess,room.getBookingStatus());
-    }*/
+        User user = new User();
+        Appointment appointment = meeting.doBooking(user,room);
+        assertEquals(Room.BOOKING_STATUS_BOOKED,room.getBookingStatus());
+    }
+
     @Test
     public void testAddRoom() {
         User user = new User();

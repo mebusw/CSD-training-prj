@@ -4,6 +4,10 @@ package example.portal;
  * Created by Thinkpad on 18-06-04.
  */
 public class Room {
+    public static final int BOOKING_STATUS_BOOKED = 1;
+
+    private int bookStatus;
+
     public String getStartDate() {
         return startDate;
     }
@@ -39,5 +43,13 @@ public class Room {
 
     public void setMaxPrice(int maxPrice) {
         this.maxPrice = maxPrice;
+    }
+
+    public int getBookingStatus() {
+        return bookStatus;
+    }
+
+    public void setBookStatus(int bookStatus) {
+        this.bookStatus = bookStatus;
     }
 }

@@ -1,6 +1,7 @@
 package example.portal;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -22,5 +23,14 @@ public class Meeting {
 
     public List<Room> getAllRooms() {
         return rooms;
+    }
+
+    public Appointment doBooking(User user, Room room) {
+        room.setBookStatus(Room.BOOKING_STATUS_BOOKED);
+        Appointment appointment = new Appointment();
+        appointment.setUser(user);
+        appointment.setCreateDate("2018-06-04");
+        appointment.setRoom(room);
+        return  appointment;
     }
 }

@@ -8,11 +8,6 @@ class RoomService {
     }
 
     List<Room> query(boolean ordered) {
-
-
-        List orderRoomList = new ArrayList();
-        List noOrderRoomList = new ArrayList();
-
         return roomList.findAll {
             (it.ordered != null) == ordered
         }.asList()

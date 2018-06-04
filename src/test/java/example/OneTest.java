@@ -34,7 +34,7 @@ public class OneTest {
 
 
   @Test
-  public void testMainWithArgs0isUser_Without_EnoughArgsN() throws IOException {
+  public void testMainWithArgs_User_Without_EnoughArgsN() throws IOException {
     // change System for test
     final PrintStream original = System.out;
     final PrintStream mockPrintStream = mock(PrintStream.class);
@@ -56,7 +56,7 @@ public class OneTest {
 
 
   @Test
-  public void testMainWithArgs0isUser_With_Search_Without_Available_Rooms() throws IOException {
+  public void testMainWithArgs_User_With_Search_Without_Available_Rooms() throws IOException {
     // change System for test
     final PrintStream original = System.out;
     final PrintStream mockPrintStream = mock(PrintStream.class);
@@ -75,7 +75,4 @@ public class OneTest {
     // recover System
     System.setOut(original);
   }
-
-
-
 }

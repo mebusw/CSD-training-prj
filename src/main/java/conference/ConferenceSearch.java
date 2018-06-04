@@ -1,6 +1,7 @@
 package conference;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class ConferenceSearch {
@@ -31,6 +32,7 @@ public class ConferenceSearch {
                 result.add(room);
             }
         }
+        Collections.sort(result);
         return result;
 
     }

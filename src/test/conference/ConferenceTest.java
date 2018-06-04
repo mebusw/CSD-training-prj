@@ -7,8 +7,6 @@ import org.junit.Test;
 import java.util.List;
 
 public class ConferenceTest {
-
-
     private ConferenceSearch search;
 
     @Before
@@ -17,28 +15,39 @@ public class ConferenceTest {
     }
 
     @Test
-    public void testSearchConferenRoom() {
-        List<Room>  rooms = search.search("杭州");
-        Assert.assertEquals("001",rooms.get(0).getRoomid());
+    public void testSearchConferenRooms() {
+        List<Room> rooms = search.search("杭州");
+        Assert.assertEquals("001", rooms.get(0).getRoomId());
         rooms = search.search("上海");
-        Assert.assertEquals("002",rooms.get(0).getRoomid());
+        Assert.assertEquals("002", rooms.get(0).getRoomId());
         rooms = search.search("北京");
-        Assert.assertEquals("003",rooms.get(0).getRoomid());
+        Assert.assertEquals("003", rooms.get(0).getRoomId());
     }
+
     @Test
-    public void testSearchConferenRoomAddrIsNull() {
-        ConferenceSearch search = new ConferenceSearch();
+    public void testSearchConferenRoomsAddrIsNull() {
         //地址为空返回所有酒店
-        List<Room>  rooms = search.search(null);
-        Assert.assertTrue(rooms.size()>0);
+        List<Room> rooms = search.search(null);
+        Assert.assertTrue(rooms.size() > 0);
     }
+
     @Test
-    public void testsearchAndSortByPriceRoom(){
-        ConferenceSearch search = new ConferenceSearch();
-        List<Room>  rooms = search.searchAndSortByPrice("杭州","free");
+    public void testsearchAndSortByPriceRooms() {
+        List<Room> rooms = search.searchAndSortByPrice("杭州", "free");
         System.out.println(rooms);
-        Assert.assertTrue(rooms.size()>0);
-        Assert.assertEquals("杭州",rooms.get(0).getAddr());
-        Assert.assertEquals("free",rooms.get(0).getStatus());
+        Assert.assertTrue(rooms.size() > 0);
+        Assert.assertEquals("杭州", rooms.get(0).getAddr());
+        Assert.assertEquals("free", rooms.get(0).getStatus());
+    }
+
+    @Test
+    public void testReserveRoom(){
+        ConferenceReserve reserve = new ConferenceReserve();
+        List<Room> rooms = search.searchAndSortByPrice("杭州", "free");
+        Assert.assertTrue(rooms.size() > 0);
+        Assert.assertEquals("杭州", rooms.get(0).getAddr());
+        Assert.assertEquals("free", rooms.get(0).getStatus());
+        Assert.assertTrue(reserve.reserve(rooms.get(0).getRoomId()));
+
     }
 }

@@ -1,22 +1,22 @@
 package conference;
 
-public class Room {
+public class Room implements Comparable {
     public Room() {
     }
 
-    public Room(String roomid, String addr, double price,String status) {
-        this.roomid = roomid;
+    public Room(String roomId, String addr, double price,String status) {
+        this.roomId = roomId;
         this.addr = addr;
         this.price = price;
         this.status = status;
     }
 
-    public String getRoomid() {
-        return roomid;
+    public String getRoomId() {
+        return roomId;
     }
 
-    public void setRoomid(String roomid) {
-        this.roomid = roomid;
+    public void setRoomId(String roomId) {
+        this.roomId = roomId;
     }
 
     public String getAddr() {
@@ -36,10 +36,10 @@ public class Room {
     }
 
     public String toString() {
-        return this.roomid;
+        return this.roomId + "-"+ this.addr + "-" +this.price+ "-" +this.getStatus();
     }
 
-    private String roomid;
+    private String roomId;
     private String addr;
     private double price;
 
@@ -50,6 +50,16 @@ public class Room {
     public void setStatus(String status) {
         this.status = status;
     }
-
     private String status;
+
+    @Override
+    public int compareTo(Object o) {
+        Room room2 = (Room)o;
+        if (this.getPrice()>room2.getPrice()){
+            return 1;
+        }else if(this.getPrice()<room2.getPrice()) {
+            return -1;
+        }
+        return 0;
+    }
 }

@@ -7,7 +7,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MeetingRoomTest {
+public class MeetingRoomManagerTest {
 
 
     private String meetingRoomName;

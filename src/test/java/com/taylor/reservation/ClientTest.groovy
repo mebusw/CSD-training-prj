@@ -16,6 +16,7 @@ class ClientTest extends Specification {
         given:
             def service = new HotelService()
             def criteria = HotelCriteria.create().roomHasWifi(true).roomOutletNumGt(10).roomSeatsNumGt(10).roomPriceGt(1000).roomPriceLt(2000)
+            criteria.roomStartTime("2018 06 02").roomEndTime("2018 06 02")
         when:
             Collection<Hotel> hotels = service.search(criteria)
         then:
@@ -28,96 +29,60 @@ class ClientTest extends Specification {
             room.getSeatsNumer() > 10
             room.getPrice() > 1000
             room.getPrice() < 2000
-//            for (Hotel hotel:hotels) {
-//                Collection<Room> rooms = hotel.getRooms()
-//                hotel.getRooms().size() > 0
-//                for(Room room:rooms) {
-//                    room.hasWifi()==true
-//                    room.getOutLetNum() > 10
-//                    room.getSeatsNum() > 10
-//                    room.getPrice() > 1000
-//                    room.getPrice() < 2000
-//                }
-//            }
     }
 
+    def "查询酒店会议室预约"() {
+        given:
+            def reservationService = new ReservationService();
+        when:
+            Reservation reservation = reservationService.getReservation(1l)
+        then:
+            reservation!=null
+            reservation.getReservationId() == 1l
 
+    }
 
+    def "预定酒店会议室"() {
+        given:
+            def customerService = new CustomerService()
+            def reservation = new Reservation()
+            reservation.setCustomerId(123456l)
+            reservation.setMeetingStartTime(new Date(1528033197795 - 3600*33*30))
+            reservation.setMeetingEndTime(new Date( 1528033197795 - 3600*37*30))
+            reservation.setRoomId(222222l)
+            reservation.setReservationState(ReservationState.INITIALIZED)
+            def reservationService = new ReservationService()
+        when:
+            Long reservationId = customerService.reserve(reservation)
+            Reservation result = reservationService.getReservation(reservationId)
+        then:
+            reservation != null
+            reservationId == result.getReservationId()
+            ReservationState.RESERVED == reservation.getReservationState()
+    }
 
+    def "会议室特殊原因拒绝预约"() {
+        given:
+            def reservationService = new ReservationService()
+            def reservationId=1l
+            def rejectMark = '装修中'
+        when:
+            reservationService.rejectReservation(reservationId,rejectMark)
+            Reservation result = reservationService.getReservation(reservationId)
+        then:
+            ReservationState.REJECTED == result.getReservationState()
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//    def "查询酒店会议室预约"() {
-//        given:
-//            def reservationService = new ReservationService();
-//        when:
-//            Reservation reservation = reservationService.getReservation(1l)
-//        then:
-//            reservation!=null
-//            reservation.getReservationId() == 1l
-//
-//    }
-//
-//    def "预定酒店会议室"() {
-//        given:
-//            def customerService = new CustomerService()
-//            def reservation = new Reservation()
-//            reservation.setCustomerId(123456l)
-//            reservation.setMeetingStartTime(new Date(1528033197795 - 3600*33*30))
-//            reservation.setMeetingEndTime(new Date( 1528033197795 - 3600*37*30))
-//            reservation.setRoomId(222222l)
-//            reservation.setReservationState(ReservationState.INITIALIZED)
-//            def reservationService = new ReservationService()
-//        when:
-//            Long reservationId = customerService.reserve(reservation)
-//            Reservation result = reservationService.getReservation(reservationId)
-//        then:
-//            reservation != null
-//            reservationId == result.getReservationId()
-//            ReservationState.RESERVED == reservation.getReservationState()
-//    }
-//
-//    def "会议室特殊原因拒绝预约"() {
-//        given:
-//            def reservationService = new ReservationService()
-//            def reservationId=1l
-//            def rejectMark = '装修中'
-//        when:
-//            reservationService.rejectReservation(reservationId,rejectMark)
-//            Reservation result = reservationService.getReservation(reservationId)
-//        then:
-//            ReservationState.REJECTED == result.getReservationState()
-//    }
-//
-//    def "预约成功"() {
-//        given:
-//        def reservationService = new ReservationService()
-//        def reservationId=1l
-//        def rejectMark = '装修中'
-//        when:
-//        reservationService.rejectReservation(reservationId,rejectMark)
-//        Reservation result = reservationService.getReservation(reservationId)
-//        then:
-//        ReservationState.REJECTED == result.getReservationState()
-//    }
+    def "预约成功"() {
+        given:
+        def reservationService = new ReservationService()
+        def reservationId=1l
+        def rejectMark = '装修中'
+        when:
+        reservationService.rejectReservation(reservationId,rejectMark)
+        Reservation result = reservationService.getReservation(reservationId)
+        then:
+        ReservationState.REJECTED == result.getReservationState()
+    }
 
 }

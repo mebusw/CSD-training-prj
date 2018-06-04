@@ -8,23 +8,13 @@ class RoomService {
     }
 
     List<Room> query(boolean ordered) {
+
+
         List orderRoomList = new ArrayList();
         List noOrderRoomList = new ArrayList();
 
-        for(Room room:roomList){
-
-            if(room.ordered != null){
-                orderRoomList.add(room)
-
-            }else{
-                noOrderRoomList.add(room)
-            }
-        }
-
-        if(ordered){
-            return orderRoomList
-        }else{
-            return noOrderRoomList
-        }
+        return roomList.findAll {
+            (it.ordered != null) == ordered
+        }.asList()
    }
 }

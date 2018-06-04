@@ -23,6 +23,10 @@ public class One {
             return;
         }
         if (args[0].equals(vendor)) {
+            if (args.length == 1) {
+                System.out.println("vendor need other args: add, remove or list.");
+                return;
+            }
             System.out.println(args[1] + " " + args[2] + " " + args[3]);
         }
     }

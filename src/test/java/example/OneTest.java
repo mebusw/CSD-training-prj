@@ -78,6 +78,28 @@ public class OneTest {
 
 
   @Test
+  public void testMainWithArgs_Vendor_Without_EnoughArgsN() throws IOException {
+    // change System for test
+    final PrintStream original = System.out;
+    final PrintStream mockPrintStream = mock(PrintStream.class);
+    System.setOut(mockPrintStream);
+
+    // arrange
+    String[] args = {"vendor"};
+    String expectedOut = "vendor need other args: add, remove or list.";
+
+    // act
+    One.main(args);
+
+    // assert
+    verify(mockPrintStream).println(expectedOut);
+
+    // recover System
+    System.setOut(original);
+  }
+
+
+  @Test
   public void testMainWithArgs_Vendor_With_AddRoom() throws IOException {
     // change System for test
     final PrintStream original = System.out;

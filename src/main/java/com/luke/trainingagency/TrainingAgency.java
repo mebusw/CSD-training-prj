@@ -15,9 +15,15 @@ public class TrainingAgency {
     public static final int CLASS_TYPE_CSD = 3;
 
     private Map<String, Student> studentMap;
+    private String name;
 
     public TrainingAgency() {
         studentMap = new HashMap<String,Student>();
+    }
+
+    public TrainingAgency(String name) {
+        studentMap = new HashMap<String,Student>();
+        this.name = name;
     }
 
     public Boolean booking(Hotel hotel, int classTypeCsd) {
@@ -47,5 +53,13 @@ public class TrainingAgency {
         } else {
             return false;
         }
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

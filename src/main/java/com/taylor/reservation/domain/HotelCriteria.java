@@ -8,6 +8,8 @@ public class HotelCriteria {
     private int seatsNumberLeft;
     private int priceLeft;
     private int priceRight;
+    private String roomStrartTime;
+    private String roomEndTime;
 
 
     public static HotelCriteria create() {
@@ -44,4 +46,15 @@ public class HotelCriteria {
         this.priceRight = p ;
         return this;
     }
+
+    public HotelCriteria roomStartTime(String p) {
+        this.roomStrartTime = p;
+        return this;
+    }
+
+    public HotelCriteria roomEndTime(String p) {
+        this.roomEndTime = p;
+        return this;
+    }
+
 }

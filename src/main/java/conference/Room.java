@@ -1,12 +1,15 @@
 package conference;
 
 public class Room {
-    public Room(){    }
-    public Room(String roomid,String addr,double price){
+    public Room() {
+    }
+
+    public Room(String roomid, String addr, double price) {
         this.roomid = roomid;
         this.addr = addr;
         this.price = price;
     }
+
     public String getRoomid() {
         return roomid;
     }
@@ -31,11 +34,11 @@ public class Room {
         this.price = price;
     }
 
-    public String toString(){
+    public String toString() {
         return this.roomid;
     }
 
-    private String  roomid;
+    private String roomid;
     private String addr;
     private double price;
 }

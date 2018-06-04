@@ -5,6 +5,8 @@ class Room {
 
     def rate=1f;
 
+    Object ordered;
+
     int getSaledPrice() {return price*rate;}
 
     def setPrice(int price){this.price = price}
@@ -17,5 +19,17 @@ class Room {
         return price;
     }
 
+    Object getOrdered() {
+        return ordered;
+    }
+
+    def setOrdered(Object ordered){
+        if(this.ordered == null){
+
+            this.ordered = ordered
+        }else{
+            throw new Exception("Room is Ordered")
+        }
+    }
 
 }

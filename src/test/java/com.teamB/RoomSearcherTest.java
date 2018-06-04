@@ -32,7 +32,6 @@ public class RoomSearcherTest {
     @Test
     public void testPay() throws Exception {
 
-
         Room room = new Room();
         room.setPrice(200);
 
@@ -43,7 +42,6 @@ public class RoomSearcherTest {
         Pay pay = new Pay();
         boolean payResult = pay.pay(room.getPrice());
         assertTrue(payResult);
-
     }
 
 }

@@ -17,6 +17,11 @@ public class Room {
     private String hotelName;
     private int capiblity;
 
+    public int getPrice() {
+        return price;
+    }
+
+    private int price;
     public void setName(String name) {
         this.name = name;
     }
@@ -30,4 +35,7 @@ public class Room {
     }
 
 
+    public void setPrice(int price) {
+        this.price = price;
+    }
 }

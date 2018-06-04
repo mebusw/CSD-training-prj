@@ -29,4 +29,21 @@ public class RoomSearcherTest {
         assertTrue(bookResult);
     }
 
+    @Test
+    public void testPay() throws Exception {
+
+
+        Room room = new Room();
+        room.setPrice(200);
+
+        Booker booker = new Booker();
+        boolean bookResult = booker.requestRoom(room);
+        assertTrue(bookResult);
+
+        Pay pay = new Pay();
+        boolean payResult = pay.pay(room.getPrice());
+        assertTrue(payResult);
+
+    }
+
 }

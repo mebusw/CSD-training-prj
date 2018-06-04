@@ -1,6 +1,7 @@
 package example;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class MeetingRoomManager {
@@ -11,6 +12,14 @@ public class MeetingRoomManager {
     }
 
     public List<MeetingRoom> searchAvailable() {
-        return rooms;
+        List<MeetingRoom> availableRooms = new ArrayList<>();
+
+        for (Iterator<MeetingRoom> i = rooms.iterator(); i.hasNext();) {
+            MeetingRoom room = i.next();
+            if (room.isAvailable){
+                availableRooms.add(room);
+            }
+        }
+        return availableRooms;
     }
 }

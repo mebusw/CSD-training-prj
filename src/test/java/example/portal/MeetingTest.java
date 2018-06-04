@@ -34,17 +34,26 @@ public class MeetingTest {
     }
 
     @Test
-    public void testSearchStartDate() {
+    public void testSearchByExistedStartDate() {
         RoomSearchEntity entity = new RoomSearchEntity();
         String date = "2018-06-10";
-        entity.setStartDate("2018-06-10");
+        entity.setStartDate(date);
         List<Room> rooms = meeting.search(entity);
         assertEquals(1, rooms.size());
         assertEquals(date, rooms.get(0).getStartDate());
     }
 
     @Test
-    public void testSearchSize() {
+    public void testSearchByNotExistedStartDate() {
+        RoomSearchEntity entity = new RoomSearchEntity();
+        String date = "2018-06-09";
+        entity.setStartDate(date);
+        List<Room> rooms = meeting.search(entity);
+        assertEquals(0, rooms.size());
+    }
+
+    @Test
+    public void testSearchByExistedSize() {
         RoomSearchEntity entity = new RoomSearchEntity();
         int size = 12;
         entity.setSize(size);
@@ -54,7 +63,7 @@ public class MeetingTest {
     }
 
     @Test
-    public void testSearchDuration() {
+    public void testSearchByExistedDuration() {
         RoomSearchEntity entity = new RoomSearchEntity();
         int duration = 5;
         entity.setDuration(duration);
@@ -64,7 +73,7 @@ public class MeetingTest {
     }
 
     @Test
-    public void testSearchPrice() {
+    public void testSearchByExistedPrice() {
         RoomSearchEntity entity = new RoomSearchEntity();
         int maxPrice = 1000;
         entity.setMaxPrice(maxPrice);
@@ -78,6 +87,7 @@ public class MeetingTest {
         Room room = new Room();
         Appointment appointment = meeting.doBooking(user,room);
         assertEquals(Room.BOOKING_STATUS_BOOKED,room.getBookingStatus());
+        assertTrue(appointment != null);
     }
 
     @Test

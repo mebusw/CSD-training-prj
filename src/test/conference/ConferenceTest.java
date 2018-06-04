@@ -48,8 +48,12 @@ public class ConferenceTest {
         Room room = rooms.get(0);
         Assert.assertEquals("杭州", room.getAddr());
         Assert.assertEquals("free", room.getStatus());
-        boolean isSuccess = reserve.reserve(room.getRoomId());
-        Assert.assertTrue(isSuccess);
+        RoomOrder roomOrder = new RoomOrder();
+        roomOrder.setRoomId(room.getRoomId());
+        roomOrder.setStartDate("2018-6-9");
+        roomOrder.setEndDate("2018-6-11");
+        RoomOrder afterRoomOrder  = reserve.reserve(roomOrder);
+        Assert.assertEquals(RoomOrder.ORDER_STATUS_SUCCESS,afterRoomOrder.getOrderStatus());
         Assert.assertEquals("busy",room.getStatus());
 
     }

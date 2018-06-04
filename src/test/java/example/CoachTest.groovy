@@ -25,6 +25,15 @@ class CoachTest extends spock.lang.Specification{
 
     }
 
+    def "Coach没有会议室A的金卡"(){
+        given:""
+        when :"某个会议室（价格默认300）"
+        then:"会议室的价格对于LI为240"
+        coach.getOrderPrice(room) == 300
+        room.getActualPrice() ==300
+
+    }
+
 
 
 

@@ -9,7 +9,7 @@ public class ConferenceReserve {
         for (int i = 0; i < rooms.size(); i++) {
             room = rooms.get(i);
             if (roomId.equals(room.getRoomId())){
-                room.setStatus("busy");
+                RoomDB.setSatus(roomId);
                 return true;
             }
         }

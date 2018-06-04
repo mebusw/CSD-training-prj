@@ -45,9 +45,12 @@ public class ConferenceTest {
         ConferenceReserve reserve = new ConferenceReserve();
         List<Room> rooms = search.searchAndSortByPrice("杭州", "free");
         Assert.assertTrue(rooms.size() > 0);
-        Assert.assertEquals("杭州", rooms.get(0).getAddr());
-        Assert.assertEquals("free", rooms.get(0).getStatus());
-        Assert.assertTrue(reserve.reserve(rooms.get(0).getRoomId()));
+        Room room = rooms.get(0);
+        Assert.assertEquals("杭州", room.getAddr());
+        Assert.assertEquals("free", room.getStatus());
+        boolean isSuccess = reserve.reserve(room.getRoomId());
+        Assert.assertTrue(isSuccess);
+        Assert.assertEquals("busy",room.getStatus());
 
     }
 }

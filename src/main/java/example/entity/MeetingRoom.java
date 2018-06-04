@@ -3,18 +3,18 @@ package example.entity;
 public class MeetingRoom {
     private String name;
     private String location;
-    private String numberOfPeopleRongliang;
-    private String price;
+    private int capacity;
+    private int price;
     private boolean isBooked;
     private String description;
 
     public MeetingRoom() {
     }
 
-    public MeetingRoom(String name, String location, String numberOfPeopleRongliang, String price, boolean isBooked, String description) {
+    public MeetingRoom(String name, String location, int capacity, int price, boolean isBooked, String description) {
         this.name = name;
         this.location = location;
-        this.numberOfPeopleRongliang = numberOfPeopleRongliang;
+        this.capacity = capacity;
         this.price = price;
         this.isBooked = isBooked;
         this.description = description;
@@ -36,19 +36,19 @@ public class MeetingRoom {
         this.location = location;
     }
 
-    public String getNumberOfPeopleRongliang() {
-        return numberOfPeopleRongliang;
+    public int getCapacity() {
+        return capacity;
     }
 
-    public void setNumberOfPeopleRongliang(String numberOfPeopleRongliang) {
-        this.numberOfPeopleRongliang = numberOfPeopleRongliang;
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
     }
 
-    public String getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 

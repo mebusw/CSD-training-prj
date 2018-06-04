@@ -41,7 +41,7 @@ public class Main {
     private static void addMeetingRoom(String line) {
         String[] info = line.split(",");
 
-        hotelManager.addMeetingRoom(new MeetingRoom(info[1], info[2], info[3], info[4],false,info[5]));
+        hotelManager.addMeetingRoom(new MeetingRoom(info[1], info[2], Integer.valueOf(info[3]), Integer.valueOf(info[4]),false,info[5]));
         System.out.println((new Gson()).toJson(hotelManager.getMeetingRooms()));
     }
 

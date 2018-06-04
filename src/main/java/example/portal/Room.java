@@ -20,6 +20,7 @@ public class Room {
     private int size;
     private int duration;
     private int maxPrice;
+    private int price;
 
     public int getSize() {
         return size;
@@ -51,5 +52,13 @@ public class Room {
 
     public void setBookStatus(int bookStatus) {
         this.bookStatus = bookStatus;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
     }
 }

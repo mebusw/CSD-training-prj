@@ -108,15 +108,17 @@ public class MeetingTest {
 
     @Test
     public void testCancelBooking() {
-        Room room = new Room();
-        Appointment appointment = meeting.doBooking(user,room);
-        assertEquals(1,meeting.getAllAppointments().size());
+        RoomSearchEntity entity = new RoomSearchEntity();
+        String date = "2018-06-10";
+        entity.setStartDate(date);
+        Room room = meeting.search(entity).get(0);
+        Appointment appointment = meeting.doBooking(user, room);
 
         meeting.cancelBooking(appointment);
 
         meeting.getAllAppointments();
         assertEquals(0,meeting.getAllAppointments().size());
-
+        assertEquals(Room.BOOKING_STATUS_INIT, room.getBookingStatus());
     }
 
     @Test

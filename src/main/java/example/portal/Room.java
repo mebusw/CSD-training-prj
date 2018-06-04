@@ -5,6 +5,7 @@ package example.portal;
  */
 public class Room {
     public static final int BOOKING_STATUS_BOOKED = 1;
+    public static final int BOOKING_STATUS_INIT = 2;
 
     private int bookStatus;
 

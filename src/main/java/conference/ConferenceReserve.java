@@ -13,14 +13,13 @@ public class ConferenceReserve {
         Room room;
         for (int i = 0; i < rooms.size(); i++) {
             room = rooms.get(i);
-            if (roomOrder.getRoomId().equals(room.getRoomId())){
-                if (RoomDB.setSatus(roomOrder.getRoomId())){
+            if (roomOrder.getRoomId().equals(room.getRoomId())) {
+                if (RoomDB.setSatusforbusy(roomOrder.getRoomId())) {
                     afterRoomOrder.setOrderStatus(RoomOrder.ORDER_STATUS_SUCCESS);
-                }else {
+                } else {
                     afterRoomOrder.setOrderStatus(RoomOrder.ORDER_STATUS_FAIL);
                 }
                 break;
-
             }
         }
         return afterRoomOrder;

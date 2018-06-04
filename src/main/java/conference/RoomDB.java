@@ -19,11 +19,11 @@ public class RoomDB {
     public static List<Room> getRooms() {
         return rooms;
     }
-    public static boolean  setSatus(String roomId){
+    public static boolean setSatusforbusy(String roomId){
         Room room;
         for (int i = 0; i < rooms.size(); i++) {
             room = rooms.get(i);
-            if (roomId.equals(room.getRoomId())){
+            if (roomId.equals(room.getRoomId())&& "free".equals(room.getStatus())){
                 room.setStatus("busy");
                 return true;
             }

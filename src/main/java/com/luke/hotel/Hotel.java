@@ -14,7 +14,9 @@ public class Hotel {
     public Map<Integer, MeetingRoom> rooms;
 
     public Boolean booking(TrainingAgency subscriber, int wifiType) {
-        Set<Integer> roomList = rooms.keySet();
+
+        Set<Integer> roomList = (Set<Integer>)rooms.keySet();
+
 //        Set<> roomSet = rooms.values();
         for(Integer roomid : roomList){
             MeetingRoom room = rooms.get(roomid);
@@ -29,5 +31,14 @@ public class Hotel {
 
     public void addMeetingRoom(MeetingRoom meetingRoom) {
         rooms.put(meetingRoom.getId(),meetingRoom);
+    }
+
+    public void release(int i) {
+        Set<Integer> roomList = rooms.keySet();
+
+        MeetingRoom room = rooms.get(i);
+        if (null != room) {
+            room.setSubscriber("");
+        }
     }
 }

@@ -72,6 +72,20 @@ public class HotelTest {
         assertEquals(Boolean.FALSE, hotel.booking(uPerForm, MeetingRoom.NO_WIFI));
     }
 
+    @Test
+    public void test_book_when_has_meetingRoom_release(){
+        Hotel hotel = new Hotel();
+        TrainingAgency uPerForm = new TrainingAgency("agencyA");
+        hotel.addMeetingRoom(new MeetingRoom(1, MeetingRoom.NO_WIFI, 100));
+        hotel.addMeetingRoom(new MeetingRoom(2, MeetingRoom.NO_WIFI, 100));
+        hotel.booking(uPerForm, MeetingRoom.NO_WIFI);
+        hotel.booking(uPerForm, MeetingRoom.NO_WIFI);
+
+        hotel.release(1);
+
+        assertEquals(Boolean.TRUE, hotel.booking(uPerForm, MeetingRoom.NO_WIFI));
+    }
+
 //    @Test
 //    public void test_book_when_not_has_meetingRoom(){
 //        Hotel hotel = new Hotel();

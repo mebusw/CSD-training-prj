@@ -46,7 +46,7 @@ public class MeetingRoom {
     private int price;
 
     public MeetingRoom(int i, int i1, int price) {
-        this.id = id;
+        this.id = i;
         this.hasWifi = i1;
         this.price = price;
     }

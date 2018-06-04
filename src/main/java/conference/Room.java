@@ -4,10 +4,11 @@ public class Room {
     public Room() {
     }
 
-    public Room(String roomid, String addr, double price) {
+    public Room(String roomid, String addr, double price,String status) {
         this.roomid = roomid;
         this.addr = addr;
         this.price = price;
+        this.status = status;
     }
 
     public String getRoomid() {
@@ -41,4 +42,14 @@ public class Room {
     private String roomid;
     private String addr;
     private double price;
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    private String status;
 }

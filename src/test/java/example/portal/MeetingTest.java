@@ -38,7 +38,9 @@ public class MeetingTest {
         RoomSearchEntity entity = new RoomSearchEntity();
         String date = "2018-06-10";
         entity.setStartDate(date);
+
         List<Room> rooms = meeting.search(entity);
+
         assertEquals(1, rooms.size());
         assertEquals(date, rooms.get(0).getStartDate());
     }
@@ -48,7 +50,9 @@ public class MeetingTest {
         RoomSearchEntity entity = new RoomSearchEntity();
         String date = "2018-06-09";
         entity.setStartDate(date);
+
         List<Room> rooms = meeting.search(entity);
+
         assertEquals(0, rooms.size());
     }
 
@@ -57,7 +61,9 @@ public class MeetingTest {
         RoomSearchEntity entity = new RoomSearchEntity();
         int size = 12;
         entity.setSize(size);
+
         List<Room> rooms = meeting.search(entity);
+
         assertEquals(1, rooms.size());
         assertEquals(size, rooms.get(0).getSize());
     }
@@ -67,7 +73,9 @@ public class MeetingTest {
         RoomSearchEntity entity = new RoomSearchEntity();
         int duration = 5;
         entity.setDuration(duration);
+
         List<Room> rooms = meeting.search(entity);
+
         assertEquals(1, rooms.size());
         assertEquals(duration, rooms.get(0).getDuration());
     }
@@ -77,7 +85,9 @@ public class MeetingTest {
         RoomSearchEntity entity = new RoomSearchEntity();
         int maxPrice = 1000;
         entity.setMaxPrice(maxPrice);
+
         List<Room> rooms = meeting.search(entity);
+
         assertEquals(1, rooms.size());
         assertTrue(rooms.get(0).getPrice() <= maxPrice);
     }
@@ -85,7 +95,9 @@ public class MeetingTest {
     @Test
     public void testBooking() {
         Room room = new Room();
+
         Appointment appointment = meeting.doBooking(user,room);
+
         assertEquals(Room.BOOKING_STATUS_BOOKED,room.getBookingStatus());
         assertTrue(appointment != null);
     }
@@ -95,7 +107,9 @@ public class MeetingTest {
         Room room = new Room();
         Appointment appointment = meeting.doBooking(user,room);
         assertEquals(1,meeting.getAllAppointments().size());
+
         meeting.cancelBooking(appointment);
+
         meeting.getAllAppointments();
         assertEquals(0,meeting.getAllAppointments().size());
 
@@ -108,16 +122,20 @@ public class MeetingTest {
         room.setSize(12);
         room.setDuration(5);
         room.setPrice(1000);
+
         meeting.addRoom(adminUser,room);
+
         List<Room> rooms = meeting.getAllRooms();
-//        assertEquals(1, rooms.size());
+        assertEquals(2, rooms.size());
     }
 
     @Test
     public void testGetAllAppointments() {
         Room room = new Room();
+
         Appointment appointment = meeting.doBooking(user,room);
+
         List<Appointment> appointments = meeting.getAllAppointments(user);
-//        assertEquals(1, appointments.size());
+        assertEquals(1, appointments.size());
     }
 }

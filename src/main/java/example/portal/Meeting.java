@@ -52,6 +52,7 @@ public class Meeting {
     }
 
     public void cancelBooking(Appointment appointment) {
+        appointment.getRoom().setBookStatus(Room.BOOKING_STATUS_INIT);
         appointments.remove(appointment);
     }
 

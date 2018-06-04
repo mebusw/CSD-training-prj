@@ -62,6 +62,17 @@ public class MeetingTest {
     }
 
     @Test
+    public void testCancelBooking() {
+        Room room = new Room();
+        Appointment appointment = meeting.doBooking(user,room);
+        assertEquals(1,meeting.getAllAppointments().size());
+        meeting.cancelBooking(appointment);
+        meeting.getAllAppointments();
+        assertEquals(0,meeting.getAllAppointments().size());
+
+    }
+
+    @Test
     public void testAddRoom() {
         Room room = new Room();
         room.setStartDate("2018-06-10");

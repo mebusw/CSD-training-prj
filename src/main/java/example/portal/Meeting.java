@@ -40,4 +40,12 @@ public class Meeting {
     public List<Appointment> getAllAppointments(User user) {
         return appointments;
     }
+
+    public List<Appointment> getAllAppointments() {
+        return appointments;
+    }
+
+    public void cancelBooking(Appointment appointment) {
+        appointments.remove(appointment);
+    }
 }

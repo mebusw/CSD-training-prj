@@ -44,4 +44,22 @@ public class RoomSearcherTest {
         assertTrue(payResult);
     }
 
+    @Test
+    public void testAttednee() {
+        Attendee attendee = new Attendee();
+        attendee.setRecieve(true);
+
+        assertTrue(attendee.getRecieve());
+    }
+
+    @Test
+    public void testBookNotification() {
+//
+//        RoomManager rm = new RoomManager();
+//        rm.sendNotifications(List<Attendee>);
+//
+//        rm.sent
+    }
+
+
 }

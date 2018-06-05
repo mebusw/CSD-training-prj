@@ -5,9 +5,17 @@ import java.util.Collections;
 import java.util.List;
 
 public class ConferenceSearch {
+    private  IRoomDB roomDB;
+    public ConferenceSearch(IRoomDB roomDB){
+        if (null == roomDB ){
+            this.roomDB =  new RoomDB();
+        }else {
+            this.roomDB = roomDB;
+        }
+    }
     public List<Room> search(String addr) {
         List<Room> result = new ArrayList<Room>();
-        List<Room> rooms = RoomDB.getRooms();
+        List<Room> rooms = roomDB.getRooms();
         if ("".equals(addr)){
             return rooms;
         }
@@ -24,7 +32,7 @@ public class ConferenceSearch {
 
     public List<Room> searchAndSortByPrice(String addr, String status) {
         List<Room> result = new ArrayList<Room>();
-        List<Room> rooms = RoomDB.getRooms();
+        List<Room> rooms = roomDB.getRooms();
         Room room;
         for (int i = 0; i < rooms.size(); i++) {
             room = rooms.get(i);

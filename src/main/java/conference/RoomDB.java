@@ -3,8 +3,7 @@ package conference;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RoomDB {
-
+public  class RoomDB  implements IRoomDB {
     private  static List<Room> rooms = new ArrayList<Room>();
     static {
         rooms.add(new Room("001","杭州",1000.00,"busy"));
@@ -16,18 +15,7 @@ public class RoomDB {
         rooms.add(new Room("006","杭州",1200.00,"free"));
     }
 
-    public static List<Room> getRooms() {
+    public  List<Room> getRooms() {
         return rooms;
-    }
-    public static boolean setSatusforbusy(String roomId){
-        Room room;
-        for (int i = 0; i < rooms.size(); i++) {
-            room = rooms.get(i);
-            if (roomId.equals(room.getRoomId())&& "free".equals(room.getStatus())){
-                room.setStatus("busy");
-                return true;
-            }
-        }
-        return false;
     }
 }

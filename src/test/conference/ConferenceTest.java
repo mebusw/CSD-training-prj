@@ -4,14 +4,32 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class ConferenceTest {
+public class ConferenceTest implements IRoomDB {
     private ConferenceSearch search;
+    private ConferenceReserve reserve;
+    private static List<Room> rooms = new ArrayList<Room>();
+    static {
+        rooms.add(new Room("001", "杭州", 1000.00, "busy"));
+        rooms.add(new Room("002", "上海", 2000.00, "busy"));
+        rooms.add(new Room("003", "北京", 3000.00, "free"));
+        rooms.add(new Room("004", "杭州", 850.00, "free"));
+        rooms.add(new Room("009", "杭州", 3000.00, "free"));
+        rooms.add(new Room("005", "杭州", 2000.00, "free"));
+        rooms.add(new Room("006", "杭州", 1200.00, "free"));
+    }
+
+    @Override
+    public List<Room> getRooms() {
+        return rooms;
+    }
 
     @Before
     public void setUp() throws Exception {
-        search = new ConferenceSearch();
+        search = new ConferenceSearch(this);
+        reserve = new ConferenceReserve(this);
     }
 
     @Test
@@ -41,8 +59,7 @@ public class ConferenceTest {
     }
 
     @Test
-    public void testReserveRoom(){
-        ConferenceReserve reserve = new ConferenceReserve();
+    public void testReserveRoom() {
         List<Room> rooms = search.searchAndSortByPrice("杭州", "free");
         Assert.assertTrue(rooms.size() > 0);
         Room room = rooms.get(0);
@@ -52,9 +69,10 @@ public class ConferenceTest {
         roomOrder.setRoomId(room.getRoomId());
         roomOrder.setStartDate("2018-6-9");
         roomOrder.setEndDate("2018-6-11");
-        RoomOrder afterRoomOrder  = reserve.reserve(roomOrder);
-        Assert.assertEquals(RoomOrder.ORDER_STATUS_SUCCESS,afterRoomOrder.getOrderStatus());
-        Assert.assertEquals("busy",room.getStatus());
+        RoomOrder afterRoomOrder = reserve.reserve(roomOrder);
+        Assert.assertEquals(RoomOrder.ORDER_STATUS_SUCCESS, afterRoomOrder.getOrderStatus());
+        Assert.assertEquals("busy", room.getStatus());
 
     }
+
 }

@@ -27,7 +27,7 @@ public class ConferenceTest {
     @Test
     public void testSearchConferenRoomsAddrIsNull() {
         //地址为空返回所有酒店
-        List<Room> rooms = search.search(null);
+        List<Room> rooms = search.search("");
         Assert.assertTrue(rooms.size() > 0);
     }
 

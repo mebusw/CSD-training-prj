@@ -8,7 +8,7 @@ public class ConferenceSearch {
     public List<Room> search(String addr) {
         List<Room> result = new ArrayList<Room>();
         List<Room> rooms = RoomDB.getRooms();
-        if (null == addr){
+        if ("".equals(addr)){
             return rooms;
         }
         Room room;

@@ -10,6 +10,7 @@ public class Reservation {
     private Date meetingEndTime;
     private long reservationId;
     private ReservationState reservationState;
+    private String hotelComments;
 
 
     public long getCustomerId() {
@@ -59,4 +60,13 @@ public class Reservation {
     public void setReservationState(ReservationState reservationState) {
         this.reservationState = reservationState;
     }
+
+    public String getHotelComments() {
+        return this.hotelComments;
+    }
+
+    public void setHotelComments(String hotelComments) {
+        this.hotelComments = hotelComments;
+    }
+
 }

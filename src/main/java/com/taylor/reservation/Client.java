@@ -13,7 +13,6 @@ import java.io.InputStreamReader;
 public class Client {
 
 
-    static ReservationService reservationService = new ReservationService();
     static CustomerService customerService = new CustomerService();
     static HotelService hotelService = new HotelService();
 

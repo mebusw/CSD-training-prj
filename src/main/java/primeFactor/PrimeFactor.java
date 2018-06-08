@@ -10,6 +10,9 @@ public class PrimeFactor {
         if (number==2){
             result.add(number);
         }
+        if (number==3){
+            result.add(number);
+        }
         return result;
     }
 }

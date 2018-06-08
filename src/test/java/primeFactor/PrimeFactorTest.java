@@ -25,7 +25,8 @@ public class PrimeFactorTest {
         return Arrays.asList(new Object[][]{
                 {Arrays.asList(2),2},
                 {Arrays.asList(3),3},
-                {Arrays.asList(2,2),4}
+                {Arrays.asList(2,2),4},
+                {Arrays.asList(5),5}
                 });
     }
 

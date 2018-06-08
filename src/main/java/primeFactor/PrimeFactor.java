@@ -12,14 +12,8 @@ public class PrimeFactor {
             while (number % i == 0) {
                 result.add(i);
                 number/=i;
-                if (number==1){
-                    break;
-                }
             }
         }
-
-
-
         return result;
     }
 }

@@ -26,7 +26,11 @@ public class PrimeFactorTest {
                 {Arrays.asList(2),2},
                 {Arrays.asList(3),3},
                 {Arrays.asList(2,2),4},
-                {Arrays.asList(5),5}
+                {Arrays.asList(5),5},
+                {Arrays.asList(2,3),6},
+                {Arrays.asList(7),7},
+                {Arrays.asList(2,2,2),8},
+                {Arrays.asList(3,3),9}
                 });
     }
 

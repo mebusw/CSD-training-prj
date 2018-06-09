@@ -104,4 +104,24 @@ public class MeetingRoomManagerTest {
         Assert.assertEquals(false, room.isAvailable);
         Assert.assertEquals(true, room2.isAvailable);
     }
+
+    @Test
+    public void test_Reserve_a_MeetingRooms_Two_Times(){
+        // arrange
+        MeetingRoomManager sut = new MeetingRoomManager();
+        MeetingRoom room1 = new MeetingRoom("room1", "vendor1");
+        sut.addRoom(room1);
+
+        // act
+        boolean actual;
+        actual = sut.reserveMeetingRoom("room1", "vendor1");
+        Assert.assertEquals(true, actual);
+        Assert.assertEquals(false, room1.isAvailable);
+
+        actual = sut.reserveMeetingRoom("room1", "vendor1");
+        // assert
+        Assert.assertEquals(false, actual);
+        Assert.assertEquals(false, room1.isAvailable);
+    }
+
 }

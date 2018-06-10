@@ -1,4 +1,4 @@
-package com.taylor.reservation
+package com.taylor.reservation.service
 
 import com.taylor.reservation.dao.ReservationDao
 import com.taylor.reservation.domain.*

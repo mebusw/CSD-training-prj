@@ -1,4 +1,4 @@
-package com.taylor
+package com.taylor.reservation
 
 import spock.lang.Specification
 
@@ -35,10 +35,7 @@ class SpockDemoTest extends Specification {
     def "误区2:用java 8 的Iterable forEach循环断言"() {
         given: ""
         List<String> ones = Arrays.asList("one1", "one", "one", "one")
-        when: "用java 8 之前的for循环断言"
-        then: "结果"
-        when: "用java 8 的Iterable forEach循环断言"
-        then: "结果无效，断言应该失败却通过了测试"
+        expect: "结果无效，断言应该失败却通过了测试"
         ones.forEach(new Consumer<String>() {
             @Override
             void accept(String item) {
@@ -63,4 +60,15 @@ class SpockDemoTest extends Specification {
         }
     }
 
+
+    def "循环体中断言正确用法Expect"() {
+        expect:
+        Arrays.asList("one1", "one", "one").each {
+            assert it.contains("one")
+        }
+
+        Arrays.asList("one1", "one", "one").every() {
+            x -> x.contains("one")
+        }
+    }
 }

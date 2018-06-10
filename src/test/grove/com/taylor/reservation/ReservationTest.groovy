@@ -14,20 +14,38 @@ class ClientTest extends Specification {
     ReservationDao reservationDao = Mock()
 
 
-    def "循环体内的断言是否生效"() {
-        given:
-        List<String> ones = Arrays.asList("one1", "one", "one", "one")
+    def "用for循环里面进行断言"() {
+        given: ""
+        List<String> ones = Arrays.asList("one1", "one", "one")
 
-
-        when:"用java 8 之前的for循环断言"
-        then:"结果"
-        for (String item:ones) {
-            "one" == item
+        when: "用for循环形式断言"
+        then:
+        for (String item : ones) {
+            "one" == item   //应该失败然而通过了
+        }
+        for (String item : ones) {
+            "one" != item   //应该失败然而通过了
         }
 
-        when:"用java 8 的Iterable forEach循环断言"
-        true
-        then:"结果无效，断言应该失败却通过了测试"
+        when: "直接取出其中一条断言"
+        then:
+        ones.get(0) == "one1" //正确通过了
+
+        when: "用for i 遍历 用get(i)方式取元素断言"
+        then:
+        for (int i = 0; i < ones.size(); i++) {
+            def one = ones.get(i)
+            "one" == one    //应该失败然而通过了
+        }
+    }
+
+    def "用java 8 的Iterable forEach循环断言"() {
+        given: ""
+        List<String> ones = Arrays.asList("one1", "one", "one", "one")
+        when: "用java 8 之前的for循环断言"
+        then: "结果"
+        when: "用java 8 的Iterable forEach循环断言"
+        then: "结果无效，断言应该失败却通过了测试"
         ones.forEach(new Consumer<String>() {
             @Override
             void accept(String item) {
@@ -55,7 +73,7 @@ class ClientTest extends Specification {
         hotels.size() <= 5
         for (int i = 0; i < rooms.size(); i++) {
             Room room = rooms.get(i)
-            room.hasWifi() == false
+            room.hasWifi() == true
             room.getOutletNumber() > 10
             room.getSeatsNumer() > 10
             room.getPrice() > 1000
@@ -105,7 +123,7 @@ class ClientTest extends Specification {
     }
 
     def "会议室特殊原因拒绝预约"() {
-        given:"预约服务接口"
+        given: "预约服务接口"
         ReservationService reservationService = new ReservationService()
         reservationService.setReservationDao(reservationDao)
 
@@ -114,7 +132,7 @@ class ClientTest extends Specification {
         reservation.setHotelComments("装修中")
         reservationDao.getReservationById(2l) >> reservation
 
-        when:"拒绝预约"
+        when: "拒绝预约"
         Reservation result = reservationService.rejectReservation(2l, "装修中")
 
         then:

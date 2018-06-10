@@ -52,7 +52,7 @@ public class ConferenceTest implements IRoomDB {
     @Test
     public void testsearchAndSortByPriceRooms() {
         List<Room> rooms = search.searchAndSortByPrice("杭州", "free");
-        System.out.println(rooms);
+       // System.out.println(rooms);
         Assert.assertTrue(rooms.size() > 0);
         Assert.assertEquals("杭州", rooms.get(0).getAddr());
         Assert.assertEquals("free", rooms.get(0).getStatus());

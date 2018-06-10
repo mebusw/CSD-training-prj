@@ -10,10 +10,9 @@ class ConferenceSpockTest extends spock.lang.Specification {
         when:"进行搜索"
             List<Room> result =  conferenceSearch.search("杭州")
         then:"判断搜索结果"
-            for (Room room : result){
-                println(room)
-                assert room.getAddr() == "杭州"
+            assert result.size() == 5
+            result.each{
+              assert  it.getAddr() == "杭州"
             }
-
     }
 }

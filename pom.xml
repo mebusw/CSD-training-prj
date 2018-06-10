@@ -7,12 +7,6 @@
   <version>1.0-SNAPSHOT</version>
 
   <name>Simple Java Maven Project</name>
-    <configuration>
-        <includes>
-            <include>**/*Tests.java</include>
-            <include>**/*Tests.groovy</include>
-        </includes>
-    </configuration>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <sonar.language>java</sonar.language>

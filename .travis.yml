@@ -1,6 +1,6 @@
 language:
-  -java
-  -groovy
+  java
+  groovy
 
 jdk:
   - oraclejdk8

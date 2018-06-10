@@ -5,17 +5,36 @@ import com.taylor.reservation.domain.*
 import com.taylor.reservation.service.CustomerService
 import com.taylor.reservation.service.HotelService
 import com.taylor.reservation.service.ReservationService
-import org.mockito.Mockito
 import spock.lang.Specification
 
-import static org.mockito.Matchers.any
-import static org.mockito.Matchers.anyLong
-import static org.mockito.Mockito.atLeastOnce
-import static org.mockito.Mockito.times
-import static org.mockito.Mockito.verify
-import static org.mockito.Mockito.when
+import java.util.function.Consumer
 
 class ClientTest extends Specification {
+
+    ReservationDao reservationDao = Mock()
+
+
+    def "循环体内的断言是否生效"() {
+        given:
+        List<String> ones = Arrays.asList("one1", "one", "one", "one")
+
+
+        when:"用java 8 之前的for循环断言"
+        then:"结果"
+        for (String item:ones) {
+            "one" == item
+        }
+
+        when:"用java 8 的Iterable forEach循环断言"
+        true
+        then:"结果无效，断言应该失败却通过了测试"
+        ones.forEach(new Consumer<String>() {
+            @Override
+            void accept(String item) {
+                "one" == item
+            }
+        })
+    }
 
     def "搜索满足会议室条件的酒店"() {
         given:
@@ -25,28 +44,33 @@ class ClientTest extends Specification {
 
         when:
         Collection<Hotel> hotels = service.search(criteria)
-
+        List<Room> rooms = new ArrayList<>()
+        hotels.forEach(new Consumer<Hotel>() {
+            @Override
+            void accept(Hotel hotel) {
+                rooms.addAll(hotel.getRooms())
+            }
+        })
         then:
         hotels.size() <= 5
-        def hotel = hotels.iterator().next()
-        List<Room> rooms = hotel.getRooms()
-        def room = rooms.get(0)
-        room.hasWifi() == true
-        room.getOutletNumber() > 10
-        room.getSeatsNumer() > 10
-        room.getPrice() > 1000
-        room.getPrice() < 2000
+        for (int i = 0; i < rooms.size(); i++) {
+            Room room = rooms.get(i)
+            room.hasWifi() == false
+            room.getOutletNumber() > 10
+            room.getSeatsNumer() > 10
+            room.getPrice() > 1000
+            room.getPrice() < 2000
+        }
+
     }
 
     def "查询酒店会议室预约"() {
-        given:
+        given: "预约服务和预约申请"
         def reservationService = new ReservationService()
-        ReservationDao mock = Mockito.mock(ReservationDao.class)
-        reservationService.setReservationDao(mock)
+        reservationService.setReservationDao(reservationDao)
         def reservation = new Reservation()
         reservation.setReservationId(1l)
-        when(mock.getReservationById(1l)).thenReturn(reservation)
-
+        reservationDao.getReservationById(1l) >> reservation
         when:
         Reservation result = reservationService.getReservation(1l)
 
@@ -81,27 +105,21 @@ class ClientTest extends Specification {
     }
 
     def "会议室特殊原因拒绝预约"() {
-        given:
-        def reservationService = new ReservationService()
-        def reservationId = 2l
-        def rejectMark = '装修中'
-        def reservation = new Reservation()
-        reservation.setReservationId(reservationId)
-        reservation.setHotelComments(rejectMark)
-        ReservationDao mock = Mockito.mock(ReservationDao.class)
-        reservationService.setReservationDao(mock)
-        when(mock.getReservationById(reservationId)).thenReturn(reservation)
+        given:"预约服务接口"
+        ReservationService reservationService = new ReservationService()
+        reservationService.setReservationDao(reservationDao)
 
-        when:
-        reservationService.rejectReservation(reservationId, rejectMark)
-        Reservation result = reservationService.getReservation(reservationId)
+        Reservation reservation = new Reservation()
+        reservation.setReservationId(2l)
+        reservation.setHotelComments("装修中")
+        reservationDao.getReservationById(2l) >> reservation
+
+        when:"拒绝预约"
+        Reservation result = reservationService.rejectReservation(2l, "装修中")
 
         then:
         ReservationState.REJECTED == result.getReservationState()
-        rejectMark == result.getHotelComments()
-
-//        verify(mock, atLeastOnce()).getReservationById(2)
-        verify(mock).update(any(Reservation.class))
+        "装修中" == result.getHotelComments()
     }
 
 }

@@ -15,7 +15,9 @@ public class FizzBuzz {
 
     public static String showOutput(int start, int end) {
         String output = "";
-
+        for (;start<=end;start++){
+            output += answer(start)+"\n";
+        }
         return output;
     }
 

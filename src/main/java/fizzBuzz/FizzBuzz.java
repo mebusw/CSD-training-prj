@@ -14,11 +14,12 @@ public class FizzBuzz {
     }
 
     public static String showOutput(int start, int end) {
-        String output = "";
+        StringBuilder output = new StringBuilder();
         for (;start<=end;start++){
-            output += answer(start)+"\n";
+            output.append(answer(start));
+            output.append("\n");
         }
-        return output;
+        return output.toString();
     }
 
 }

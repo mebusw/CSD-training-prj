@@ -1,3 +1,5 @@
+package example
+
 import example.Administor
 import example.Room
 

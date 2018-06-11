@@ -71,4 +71,29 @@ class SpockDemoTest extends Specification {
             x -> x.contains("one")
         }
     }
+
+
+    def "maximum of two numbers"() {
+        expect:
+        Math.max(a, b) == c
+        where:
+        a | b || c
+        3 | 5 || 5
+        7 | 0 || 7
+        0 | 0 || 0
+    }
+
+    def "maximum of two numbers another where"() {
+        expect:
+        Math.max(a, b) == c
+        where:
+        a | _
+        3 | _
+        7 | _
+        0 | _
+
+        b << [5, 0, 0]
+
+        c = a > b ? a : b
+    }
 }

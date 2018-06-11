@@ -11,8 +11,8 @@ class HeroTest extends spock.lang.Specification {
     Hero groupBHero
 
     def setup(){
-        groupAHero = new HeroAngela()
-        groupBHero = new HeroXiangyu()
+        groupAHero = new HeroAngela(1)
+        groupBHero = new HeroXiangyu(2)
     }
 
     def "可以创建2个种类的英雄"(){
@@ -24,6 +24,13 @@ class HeroTest extends spock.lang.Specification {
         groupBHero.mp > 0
         groupAHero.ap > 0
         groupBHero.ap > 0
+    }
+
+    def "英雄站位测试"(){
+
+        expect:"groupA和groupB的英雄初始站位不同"
+        groupAHero.positionX != groupBHero.positionX || groupAHero.positionY != groupBHero.positionY
+
     }
 
 }

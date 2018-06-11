@@ -31,6 +31,11 @@ public class FizzBuzzTest {
     public void testFifteenthNumberFizzBuzz() {
         assertEquals("FizzBuzz", FizzBuzz.answer(15));
     }
+
+    @Test
+    public void testSeventyFiveFizzBuzz() {
+        assertEquals("FizzBuzz", FizzBuzz.answer(75));
+    }
     @Test
     public void testOutputForNumbersUpTo3() {
         assertEquals("1\n2\nFizz\n", FizzBuzz.showOutput(1, 3));

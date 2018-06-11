@@ -56,6 +56,21 @@
           </webAppConfig>
         </configuration>
       </plugin>
+      <plugin>
+        <!-- The gmavenplus plugin is used to compile Groovy code. To learn more about this plugin,
+        visit https://github.com/groovy/GMavenPlus/wiki -->
+        <groupId>org.codehaus.gmavenplus</groupId>
+        <artifactId>gmavenplus-plugin</artifactId>
+        <version>1.4</version>
+        <executions>
+            <execution>
+                <goals>
+                    <goal>compile</goal>
+                    <goal>testCompile</goal>
+                </goals>
+            </execution>
+        </executions>
+      </plugin>      
     </plugins>
   </build>
 
@@ -66,6 +81,7 @@
         <artifactId>cobertura-maven-plugin</artifactId>
         <version>2.6</version>
       </plugin>
+
   </plugins>
   </reporting>
 

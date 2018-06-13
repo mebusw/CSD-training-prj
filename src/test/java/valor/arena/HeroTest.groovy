@@ -33,4 +33,16 @@ class HeroTest extends spock.lang.Specification {
 
     }
 
+    def "英雄移动测试1"(){
+        given:"原来2个英雄的距离"
+        def orginDistance = groupAHero.distance(groupBHero)
+        def orginDistance2 = groupBHero.distance(groupAHero)
+        when:"往另外一个英雄方向移动一次"
+        groupAHero.forward(groupBHero)
+        then:"原来2人相互距离计算值一样,现在距离变短了"
+        def distance = groupBHero.distance(groupAHero)
+        distance < orginDistance
+        orginDistance == orginDistance2
+    }
+
 }

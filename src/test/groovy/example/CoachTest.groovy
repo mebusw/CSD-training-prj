@@ -1,7 +1,6 @@
 package example
 
-import example.Administor
-import example.Room
+
 import org.junit.Assert
 
 class CoachTest extends spock.lang.Specification{

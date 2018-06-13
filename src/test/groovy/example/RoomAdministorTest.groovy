@@ -1,7 +1,6 @@
 package example
 
-import example.Administor
-import example.Room
+
 
 class RoomAdministorTest extends spock.lang.Specification{
 

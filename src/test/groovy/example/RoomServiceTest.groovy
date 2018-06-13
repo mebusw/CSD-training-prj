@@ -1,6 +1,5 @@
 package example
 
-import example.Room
 
 class RoomServiceTest extends spock.lang.Specification{
 

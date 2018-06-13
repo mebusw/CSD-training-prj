@@ -112,8 +112,8 @@ class HeroTest extends spock.lang.Specification {
     def "angela升级到15级测试"(){
         given:"angela是初始是一级的英雄"
         def originalHP = heroAngela.hp
-        originalMP = heroAngela.mp
-        originalCE = heroAngela.ce
+        def originalMP = heroAngela.mp
+        def originalCE = heroAngela.ce
         when:"设定angela的成长属性，并且升级到15级"
         heroAngela.setGrowthAttribute(100,120,23);
         heroAngela.levelUp(15)

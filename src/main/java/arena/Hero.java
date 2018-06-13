@@ -7,6 +7,7 @@ public class Hero {
     血量：HP(Health Point）
     魔力值：MP(Magic Point)
     级别/级数：LV(Level)
+    成长属性：GA(GrowthAttribute)
     普通金钱：Cash/Money/Game Point(常用图标代替)
     黄金：Gold(常用图标代替)
     钻石：Diamond(常用图标代替)
@@ -24,6 +25,10 @@ public class Hero {
 
     private int group;
     private int[] position ;
+    private int hpGA;
+    private int mpGA;
+    private int ceGA;
+    private int lv = 1;
 
     public int getPositionX() {
         return position[0];
@@ -114,5 +119,18 @@ public class Hero {
             setPositionY(getPositionY()+ (factorY>0?1:-1));
         }
         return this;
+    }
+
+    public void setGrowthAttribute(int hpGA,int mpGA,int ceGA){
+        this.hpGA = hpGA;
+        this.mpGA = hpGA;
+        this.ceGA = hpGA;
+    }
+
+    public void levelUp(int level){
+        this.lv = level;
+        this.hp += hpGA * level;
+        this.mp += mpGA * level;
+        this.ce += ceGA * level;
     }
 }

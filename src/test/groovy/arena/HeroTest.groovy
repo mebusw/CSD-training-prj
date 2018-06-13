@@ -97,9 +97,9 @@ class HeroTest extends spock.lang.Specification {
 
     def "英雄移动测试6"(){
         given:"原来2个英雄在相邻的格子"
-        heroAngela.setPosition(10,12);
+        heroAngela.setPosition(10,12)
         heroXiangyu.setPosition(13,11)
-        def orginDistance = heroXiangyu.distance(heroAngela);
+        def orginDistance = heroXiangyu.distance(heroAngela)
         when:"往另外一个英雄方向移动一次"
         heroXiangyu.forward(heroAngela)
         then:"距离缩短"
@@ -107,6 +107,20 @@ class HeroTest extends spock.lang.Specification {
         distance < orginDistance
         heroXiangyu.getPositionX() == 12
         heroXiangyu.getPositionY() == 11
+    }
+
+    def "angela升级到15级测试"(){
+        given:"angela是初始是一级的英雄"
+        def originalHP = heroAngela.hp
+        originalMP = heroAngela.mp
+        originalCE = heroAngela.ce
+        when:"设定angela的成长属性，并且升级到15级"
+        heroAngela.setGrowthAttribute(100,120,23);
+        heroAngela.levelUp(15)
+        then:"angela的各项属性都有增加"
+        heroAngela.hp > originalHP
+        heroAngela.mp > originalMP
+        heroAngela.ce > originalCE
     }
 
 

@@ -45,4 +45,68 @@ class HeroTest extends spock.lang.Specification {
         orginDistance == orginDistance2
     }
 
+    def "英雄移动测试2"(){
+        given:"原来2个英雄在相邻的格子"
+        groupAHero.setPosition(10,12);
+        groupBHero.setPosition(11,11)
+        def orginDistance = groupBHero.distance(groupAHero);
+        when:"往另外一个英雄方向移动一次"
+        groupAHero.forward(groupBHero)
+        then:"距离和原来一样"
+        def distance = groupAHero.distance(groupBHero)
+        distance == orginDistance
+    }
+
+    def "英雄移动测试3"(){
+        given:"原来2个英雄在相邻的格子"
+        groupAHero.setPosition(10,12);
+        groupBHero.setPosition(10,11)
+        def orginDistance = groupBHero.distance(groupAHero);
+        when:"往另外一个英雄方向移动一次"
+        groupAHero.forward(groupBHero)
+        then:"距离和原来一样"
+        def distance = groupAHero.distance(groupBHero)
+        distance == orginDistance
+    }
+
+    def "英雄移动测试4"(){
+        given:"原来2个英雄在相邻的格子"
+        groupAHero.setPosition(10,12);
+        groupBHero.setPosition(9,12)
+        def orginDistance = groupBHero.distance(groupAHero);
+        when:"往另外一个英雄方向移动一次"
+        groupAHero.forward(groupBHero)
+        then:"距离和原来一样"
+        def distance = groupAHero.distance(groupBHero)
+        distance == orginDistance
+    }
+
+    def "英雄移动测试5"(){
+        given:"原来2个英雄在相邻的格子"
+        groupAHero.setPosition(10,12);
+        groupBHero.setPosition(13,11)
+        def orginDistance = groupBHero.distance(groupAHero);
+        when:"往另外一个英雄方向移动一次"
+        groupAHero.forward(groupBHero)
+        then:"距离缩短"
+        def distance = groupAHero.distance(groupBHero)
+        distance < orginDistance
+        groupAHero.getPositionX() == 11
+        groupAHero.getPositionY() == 12
+    }
+
+    def "英雄移动测试6"(){
+        given:"原来2个英雄在相邻的格子"
+        groupAHero.setPosition(10,12);
+        groupBHero.setPosition(13,11)
+        def orginDistance = groupBHero.distance(groupAHero);
+        when:"往另外一个英雄方向移动一次"
+        groupBHero.forward(groupAHero)
+        then:"距离缩短"
+        def distance = groupAHero.distance(groupBHero)
+        distance < orginDistance
+        groupBHero.getPositionX() == 12
+        groupBHero.getPositionY() == 11
+    }
+
 }

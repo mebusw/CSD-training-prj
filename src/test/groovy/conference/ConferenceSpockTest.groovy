@@ -12,7 +12,7 @@ class ConferenceSpockTest extends spock.lang.Specification {
         then:"判断搜索结果"
             assert result.size() == 5
             result.every{
-                it.getAddr() == "杭州"
+                x->x.getAddr()== "杭州"
             }
             result.each{
                 assert it.getAddr() == "杭州"

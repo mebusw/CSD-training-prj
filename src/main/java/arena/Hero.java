@@ -28,6 +28,11 @@ public class Hero {
     private int hpGA;
     private int mpGA;
     private int ceGA;
+
+    public int getLv() {
+        return lv;
+    }
+
     private int lv = 1;
 
     public int getPositionX() {
@@ -123,11 +128,16 @@ public class Hero {
 
     public void setGrowthAttribute(int hpGA,int mpGA,int ceGA){
         this.hpGA = hpGA;
-        this.mpGA = hpGA;
-        this.ceGA = hpGA;
+        this.mpGA = mpGA;
+        this.ceGA = ceGA;
     }
 
-    public void levelUp(int level){
+
+    /**
+     * 升了多少级的方法
+     * @param level 升的级数
+     */
+    public void levelUpWith(int level){
         this.lv = level;
         this.hp += hpGA * level;
         this.mp += mpGA * level;

@@ -14,6 +14,7 @@ public class FizzBuzzTest {
 
     @Test
     public void testFirstNumberEquals1() {
+
         assertEquals("1", FizzBuzz.answer(1));
     }
 

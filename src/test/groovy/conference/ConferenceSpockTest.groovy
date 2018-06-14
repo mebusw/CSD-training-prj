@@ -1,4 +1,4 @@
-package groovy
+package groovy.conference
 
 import conference.ConferenceSearch
 import conference.Room

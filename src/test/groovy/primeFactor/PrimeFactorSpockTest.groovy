@@ -37,4 +37,18 @@ class PrimeFactorSpockTest extends Specification {
         9 | [3,3]
         2*5*11 | [2,5,11]
     }
+    @Unroll
+    def "3.where block 方式2测试质因数分解"(){
+        expect:"魔法 定义表达式"
+        PrimeFactor.factor(number as int) == result as List
+        where:""
+         _ | result
+        _ | [2]
+        _ | [3]
+        _ | [2,2]
+        _ | [5]
+        _ | [2,3]
+        _ | [2,2,2,2,3,5]
+        number << [2,3,4,5,6,240]
+    }
 }

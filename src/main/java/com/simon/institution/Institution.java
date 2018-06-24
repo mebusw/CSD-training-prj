@@ -38,4 +38,21 @@ class Institution {
 
         return true;
     }
+
+    public boolean login(String userId, String password) {
+        if (StringUtils.isBlank(userId) || StringUtils.isBlank(password)) {
+            return false;
+        }
+
+        if (!stuMap.containsKey(userId)) {
+            return false;
+        } else {
+            if (stuMap.get(userId).getPassword().equals(password)) {
+                return true;
+            }
+        }
+
+        return false;
+
+    }
 }

@@ -12,66 +12,48 @@ class ReservationTest extends Specification {
     }
 
     def "填写账号和密码能够注册"() {
-        given:
-        def userId = "abc"
-        def password = "123"
+        expect:
+        institution.register(userId, password) == true
 
-        when:
-        def result = institution.register(userId, password)
-
-        then:
-        result == true
+        where:
+        userId | password
+        "abc" | "123"
     }
 
-    def "重复的账号不能注册"() {
+    def "错误账号和密码注册验证"() {
         given:
-        def userId = "abc"
-        def password = "123"
 
         when:
-        institution.register(userId, password)
-        def result = institution.register(userId, "234")
+        institution.register("test", "1111")
 
         then:
-        result == false
+        institution.register("test", "2222") >> false
+
+        then:
+        institution.register("", "1111") >> false
+
+        then:
+        institution.register("abc", "") >> false
+
+        then:
+        institution.register("", "") >> false
     }
 
-    def "未输入账号不能注册"() {
+    def "登陆功能验证"(){
         given:
-        def userId = ""
-        def password = "123"
 
         when:
-        def result = institution.register(userId, password)
+        institution.register("abc", "1111")
 
         then:
-        result == false
-    }
-
-    def "未输入密码不能注册"() {
-        given:
-        def userId = "abc"
-        def password = ""
-
-        when:
-        def result = institution.register(userId, password)
+        institution.login("abcd", "dddd") >> false
 
         then:
-        result == false
-    }
-
-    def "账号和密码都未输入不能注册"() {
-        given:
-        def userId = ""
-        def password = ""
-
-        when:
-        def result = institution.register(userId, password)
+        institution.login("abc", "dddd") >> false
 
         then:
-        result == false
+        institution.login("abc", "1111") >> true
     }
-
 
 
 }

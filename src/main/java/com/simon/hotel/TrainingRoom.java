@@ -10,6 +10,8 @@ public class TrainingRoom {
 
     private boolean used;
 
+    private boolean opened;
+
     public TrainingRoom (String roomNo, String hasWifi, int capacity) {
         this.roomNo = roomNo;
         this.hasWifi = hasWifi;
@@ -48,7 +50,12 @@ public class TrainingRoom {
         this.used = used;
     }
 
+    public boolean isOpened() {
+        return opened;
+    }
 
-
+    public void setOpened(boolean opened) {
+        this.opened = opened;
+    }
 
 }

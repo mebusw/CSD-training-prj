@@ -77,6 +77,11 @@ class Institution {
 
     public boolean closeCourse(int courseID) {
         if (openCourseMap.containsKey(courseID)) {
+            Course course = openCourseMap.get(courseID);
+            if (course.getTrainingRoom() != null) {
+                course.getTrainingRoom().setUsed(false);
+            }
+
             openCourseMap.remove(courseID);
             return true;
         }

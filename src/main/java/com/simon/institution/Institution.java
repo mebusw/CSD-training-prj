@@ -8,7 +8,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-class Institution {
+public class Institution {
 
     private static int count = 0;
 
@@ -116,6 +116,18 @@ class Institution {
         return resultList;
     }
 
+    public String getTrainingNameByCourseName(String name) {
+        Set<Map.Entry<Integer, Course>> courses = openCourseMap.entrySet();
+
+        for (Map.Entry<Integer, Course> entry : courses) {
+            if (entry.getValue().isSatisfyByName(name)) {
+                return entry.getValue().getTrainingRoom().getRoomNo();
+            }
+        }
+
+        return "";
+    }
+
     public List<Course> getCourseByTime(Date startTime, Date endTime) {
         List<Course> resultList = new ArrayList<>();
 
@@ -140,4 +152,11 @@ class Institution {
         return false;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }

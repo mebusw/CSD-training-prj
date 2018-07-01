@@ -63,6 +63,14 @@ public class Course {
         return false;
     }
 
+    public boolean isEnded() {
+        Date now = new Date();
+        if (now.after(this.endTime)) {
+            return true;
+        }
+        return false;
+    }
+
     public boolean addTrainee(String userId) {
         if (isSatisfyByNum()) {
             this.trainees.add(userId);

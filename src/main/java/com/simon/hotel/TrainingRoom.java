@@ -1,5 +1,7 @@
 package com.simon.hotel;
 
+import com.simon.institution.Course;
+
 public class TrainingRoom {
 
     private String roomNo;
@@ -10,12 +12,18 @@ public class TrainingRoom {
 
     private boolean used;
 
+    private String customerName;
+
+    private Course goingCourse;
+
     private boolean opened;
 
     public TrainingRoom (String roomNo, String hasWifi, int capacity) {
         this.roomNo = roomNo;
         this.hasWifi = hasWifi;
         this.capacity = capacity;
+        this.used = false;
+        this.opened = false;
     }
 
     public String getRoomNo() {
@@ -58,4 +66,19 @@ public class TrainingRoom {
         this.opened = opened;
     }
 
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
+    }
+
+    public Course getGoingCourse() {
+        return goingCourse;
+    }
+
+    public void setGoingCourse(Course goingCourse) {
+        this.goingCourse = goingCourse;
+    }
 }

@@ -55,6 +55,14 @@ public class Course {
         return false;
     }
 
+    public boolean isStart() {
+        Date now = new Date();
+        if (now.after(this.startTime)) {
+            return true;
+        }
+        return false;
+    }
+
     public boolean addTrainee(String userId) {
         if (isSatisfyByNum()) {
             this.trainees.add(userId);

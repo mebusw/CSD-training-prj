@@ -1,7 +1,11 @@
 package com.simon.institution;
 
 import org.apache.commons.lang.StringUtils;
+import org.omg.CORBA.INTERNAL;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 class Institution {
@@ -57,8 +61,18 @@ class Institution {
         return false;
     }
 
-    public boolean openCourse(String name, Date startTime, Date endTime, int number) {
-        if (StringUtils.isBlank(name) || startTime == null || endTime == null || number == 0) {
+    public boolean openCourse(String name, String startTimep, String endTimep, int number) {
+        if (StringUtils.isBlank(name) || StringUtils.isBlank(startTimep) || StringUtils.isBlank(endTimep) || number == 0) {
+            return false;
+        }
+
+        DateFormat date_format = new SimpleDateFormat("yyyy-MM-dd");
+        Date startTime = null;
+        Date endTime = null;
+        try {
+            startTime = date_format.parse(startTimep);
+            endTime = date_format.parse(endTimep);
+        } catch (ParseException e) {
             return false;
         }
 
@@ -114,6 +128,16 @@ class Institution {
         }
 
         return resultList;
+    }
+
+    public boolean signUp4Course(Integer courseId, String name) {
+        if (openCourseMap.containsKey(courseId)) {
+            Course course = openCourseMap.get(courseId);
+            if (course != null && !course.isStart()) {
+                return course.addTrainee(name);
+            }
+        }
+        return false;
     }
 
 }

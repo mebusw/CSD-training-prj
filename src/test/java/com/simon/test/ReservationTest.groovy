@@ -55,11 +55,11 @@ class ReservationTest extends Specification {
         def endTimeOther
 
         when:
-        startTime = new Date().updated(year: 2018, date: 1, month: 7)
-        endTime = new Date().updated(year: 2018, date: 3, month: 7)
-        startTimeOther = new Date().updated(year: 2018, date: 2, month: 7)
-        startTimeOther2 = new Date().updated(year: 2018, date: 4, month: 7)
-        endTimeOther = new Date().updated(year: 2018, date: 5, month: 7)
+        startTime = "2018-07-01"
+        endTime = "2018-07-03"
+        startTimeOther = "2018-07-02"
+        startTimeOther2 = "2018-07-04"
+        endTimeOther = "2018-07-05"
 
         then:
         institution.openCourse("", startTime, endTime, 5) >> false
@@ -85,10 +85,10 @@ class ReservationTest extends Specification {
         def endTimeOther
 
         when:
-        startTime = new Date().updated(year: 2018, date: 1, month: 7)
-        endTime = new Date().updated(year: 2018, date: 3, month: 7)
-        startTimeOther = new Date().updated(year: 2018, date: 7, month: 7)
-        endTimeOther = new Date().updated(year: 2018, date: 9, month: 7)
+        startTime = "2018-07-01"
+        endTime = "2018-07-02"
+        startTimeOther = "2018-07-03"
+        endTimeOther = "2018-07-09"
 
         then:
         institution.openCourse("CSD培训", startTime, endTime, 5) >> true
@@ -106,10 +106,10 @@ class ReservationTest extends Specification {
         def endTimeOther
 
         when:
-        startTime = new Date().updated(year: 2018, date: 1, month: 7)
-        endTime = new Date().updated(year: 2018, date: 3, month: 7)
-        startTimeOther = new Date().updated(year: 2018, date: 7, month: 7)
-        endTimeOther = new Date().updated(year: 2018, date: 9, month: 7)
+        startTime = "2018-07-01"
+        endTime = "2018-07-03"
+        startTimeOther = "2018-07-07"
+        endTimeOther = "2018-07-09"
         institution.openCourse("CSD培训", startTime, endTime, 5)
         institution.openCourse("CSM培训", startTimeOther, endTimeOther, 5)
 
@@ -129,6 +129,26 @@ class ReservationTest extends Specification {
 
         def courseList5 = institution.getCourseByTime(new Date().updated(year: 2018, date: 1, month: 6), new Date().updated(year: 2018, date: 1, month: 8))
         courseList5.size() == 2
+    }
+
+    def "报名课程" () {
+        when:
+        institution.openCourse("还未开始", "2018-08-01", "2018-08-03", 2)
+        institution.openCourse("已经开始", "2018-06-30", "2018-07-03", 5)
+        institution.openCourse("已经结束", "2018-06-01", "2018-06-03", 5)
+        then:
+        def result = institution.signUp4Course(1, "测试1")
+        result == true
+
+        def result2 = institution.signUp4Course(2, "测试")
+        result2 == false
+
+        def result4 = institution.signUp4Course(3, "测试")
+        result4 == false
+
+        institution.signUp4Course(1, "测试2")
+        def result5 = institution.signUp4Course(1, "测试3")
+        result5 == false
     }
 
 

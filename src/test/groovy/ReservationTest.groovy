@@ -1,5 +1,3 @@
-package com.simon.test
-
 import com.simon.hotel.HotelSite
 import com.simon.institution.Course
 import com.simon.institution.Institution

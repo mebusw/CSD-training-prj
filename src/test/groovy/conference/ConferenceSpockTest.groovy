@@ -3,6 +3,7 @@ package groovy.conference
 import conference.ConferenceSearch
 import conference.Room
 
+
 class ConferenceSpockTest extends spock.lang.Specification {
     def "按地点搜索会议室"(){
         given:"初始化搜索类"

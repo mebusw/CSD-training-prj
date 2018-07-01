@@ -1,5 +1,8 @@
 package groovy.spockTest
 
+import conference.ConferenceSearch
+import conference.IRoomDB
+import conference.Room
 import spock.lang.Specification
 
 import java.util.function.Consumer
@@ -96,4 +99,19 @@ class SpockTest extends Specification {
 
         c = a > b ? a : b
     }
+
+    def "mock" (){
+        given:
+        IRoomDB roomDB  = Mock(IRoomDB)
+        List<Room> rooms = new ArrayList<Room>()
+        rooms.add(new Room("001","杭州",1000.00,"busy"))
+        rooms.add(new Room("002","杭州",1000.00,"busy"))
+        when:
+        roomDB.getRooms()>>rooms
+        then:
+        roomDB.getRooms().every{
+            x -> x.getAddr()=="杭州"
+        }
+    }
+
 }

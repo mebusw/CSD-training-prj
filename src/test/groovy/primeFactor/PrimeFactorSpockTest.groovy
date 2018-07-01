@@ -22,8 +22,8 @@ class PrimeFactorSpockTest extends Specification {
     }
 
     @Unroll
-    def "2.使用expect-where测试质因数分解_增加unroll注解变成多个用例"(){
-        expect:"魔法 定义表达式"
+     def "2.使用expect-where测试质因数分解_增加unroll注解变成多个用例"(){
+        expect:"参数化表达式 Groovy DSL "
         PrimeFactor.factor(number as int) == result as List
         where:""
         number | result
